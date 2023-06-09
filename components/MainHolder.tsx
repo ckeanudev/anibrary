@@ -46,7 +46,7 @@ const MainHolder = () => {
     <section className="min-h-screen bg-[#161A1D] pb-5">
       {/* ----- Season Now / Currently Airing ----- */}
       <MainAnime
-        title={"Season Now"}
+        title={"New Season"}
         loading={loadingSeasonNow}
         data={dataSeasonNow}
       />
