@@ -17,7 +17,7 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
   dataCharacters,
 }) => {
   return (
-    <div className="flex flex-wrap sm:flex-nowrap p-4 md:p-5 gap-5">
+    <div className="flex flex-wrap sm:flex-nowrap p-3 md:p-5 gap-5">
       <div className="min-w-full max-w-full  sm:min-w-[240px] sm:max-w-[240px] relative flex flex-col gap-2 ">
         {dataAnime.rank != null && (
           <div className="text-white font-semibold flex py-1.5 px-3 justify-between items-center bg-[#1C2024] rounded-md">
@@ -192,9 +192,11 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
 
       {/* Characters */}
       <div className="w-full min-h-screen flex flex-col">
-        <h1 className="text-white font-semibold text-2xl mb-3">Characters</h1>
+        <h1 className="text-white font-semibold text-xl md:text-2xl mb-3">
+          Characters
+        </h1>
 
-        <ScrollArea className="rounded-md max-h-[600px] flex-1 mb-10">
+        <ScrollArea className="rounded-md max-h-[540px] md:max-h-[600px] flex-1 mb-10">
           {/* Charactars Card */}
           {!loadingCharacters && (
             <div className="p-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3">
@@ -228,9 +230,11 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
 
         {dataAnime.trailer.embed_url != null && (
           <>
-            <h1 className="text-white font-semibold text-2xl mb-3 ">Trailer</h1>
+            <h1 className="text-white font-semibold text-xl md:text-2xl mb-3 ">
+              Trailer
+            </h1>
 
-            <div className="aspect-video overflow-hidden rounded-lg mb-10">
+            <div className="aspect-video overflow-hidden rounded-lg mb-10 lg:mx-14 lg:mt-4">
               <iframe
                 width={"100%"}
                 height={"100%"}
@@ -239,9 +243,9 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
           </>
         )}
 
-        {dataAnime.streaming != null && (
+        {dataAnime.streaming != null && dataAnime.streaming.length > 0 && (
           <>
-            <h1 className="text-white font-semibold text-2xl mb-3 ">
+            <h1 className="text-white font-semibold text-xl md:text-2xl mb-3 ">
               Streaming
             </h1>
 
@@ -263,9 +267,9 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
           </>
         )}
 
-        {dataAnime.external != null && (
+        {dataAnime.external != null && dataAnime.external.length > 0 && (
           <>
-            <h1 className="text-white font-semibold text-2xl mb-3 ">
+            <h1 className="text-white font-semibold text-xl md:text-2xl mb-3 ">
               Other Site
             </h1>
 

@@ -77,21 +77,13 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
           />
         )}
 
-        {/* --------- Anime Info Third --------- */}
+        {/* --------- Anime Info Third Recommendations --------- */}
 
-        {/* <ThirdAnimeInfo
+        <ThirdAnimeInfo
           loading={loadingAnimeRecommendations}
           data={dataAnimeRecommendations?.data.data}
-        /> */}
+        />
       </div>
-
-      {/* --------- Anime Recommendations --------- */}
-
-      {/* <MainAnime
-        title={"Recommendations"}
-        loading={loadingAnimeRecommendations}
-        data={dataAnimeRecommendations}
-      /> */}
     </>
   );
 };
