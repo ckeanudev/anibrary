@@ -28,11 +28,12 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
       <div className="w-full flex justify-between items-center p-3">
         <div className="flex items-center gap-2">
           <div className="w-[16px] h-[16px] bg-[#25A18E] rounded-full"></div>
-          {/* <div className="w-[16px] h-[16px] bg-[#f72585] rounded-full"></div> */}
-          <h2 className="text-[#fff] text-2xl font-semibold">{title || ""}</h2>
+          <h2 className="text-[#fff] text-xl md:text-2xl font-semibold">
+            {title || ""}
+          </h2>
         </div>
 
-        <p className="text-[#fff] font-semibold ">View All</p>
+        <p className="text-[#fff] font-semibold text-sm ">View All</p>
       </div>
 
       {loading ? (

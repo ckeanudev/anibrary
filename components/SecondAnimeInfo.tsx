@@ -17,8 +17,8 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
   dataCharacters,
 }) => {
   return (
-    <div className="flex p-5 gap-5">
-      <div className="min-w-[240px] max-w-[240px] relative flex flex-col gap-2 ">
+    <div className="flex flex-wrap sm:flex-nowrap p-4 md:p-5 gap-5">
+      <div className="min-w-full max-w-full  sm:min-w-[240px] sm:max-w-[240px] relative flex flex-col gap-2 ">
         {dataAnime.rank != null && (
           <div className="text-white font-semibold flex py-1.5 px-3 justify-between items-center bg-[#1C2024] rounded-md">
             <p className="flex items-center gap-2">
@@ -191,13 +191,13 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
       </div>
 
       {/* Characters */}
-      <div className="flex-1 flex flex-col">
+      <div className="w-full min-h-screen flex flex-col">
         <h1 className="text-white font-semibold text-2xl mb-3">Characters</h1>
 
         <ScrollArea className="rounded-md max-h-[600px] flex-1 mb-10">
           {/* Charactars Card */}
           {!loadingCharacters && (
-            <div className="p-0 grid grid-cols-7 gap-3">
+            <div className="p-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3">
               {dataCharacters.map((data: any) => {
                 return (
                   <div
@@ -210,6 +210,7 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
                         width={115}
                         height={230}
                         className="h-auto w-full"
+                        draggable={false}
                       />
                     </div>
 
@@ -244,14 +245,14 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
               Streaming
             </h1>
 
-            <div className="flex gap-2 mb-8">
+            <div className="flex flex-wrap gap-1.5 mb-8">
               {dataAnime.streaming.map((data: any, i: number) => {
                 return (
                   data.url != null && (
                     <a
                       href={data.url}
                       target="_blank"
-                      className="text-[#fff] bg-[#25A18E] hover:bg-[#26c7af] font-semibold py-1 px-3 rounded-3xl"
+                      className="text-sm md:text-base text-[#fff] bg-[#25A18E] hover:bg-[#26c7af] font-semibold py-1 px-3 rounded-3xl"
                       key={i}>
                       {data.name}
                     </a>
@@ -268,14 +269,14 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
               Other Site
             </h1>
 
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-1.5 mb-8">
               {dataAnime.external.map((data: any, i: number) => {
                 return (
                   data.url != null && (
                     <a
                       href={data.url}
                       target="_blank"
-                      className="text-[#fff] bg-[#25A18E] hover:bg-[#26c7af] font-semibold py-1 px-3 rounded-3xl"
+                      className="text-sm md:text-base text-[#fff] bg-[#25A18E] hover:bg-[#26c7af] font-semibold py-0.5 md:py-1 px-3 rounded-3xl"
                       key={i}>
                       {data.name}
                     </a>

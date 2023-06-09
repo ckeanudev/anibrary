@@ -1,8 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { FC, useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import RecomendCard from "./RecomendCard";
 
 interface ThirdAnimeInfoProps {
@@ -11,24 +9,12 @@ interface ThirdAnimeInfoProps {
 }
 
 const ThirdAnimeInfo: FC<ThirdAnimeInfoProps> = ({ loading, data }) => {
-  const [hoverInfo, setHoverInfo] = useState(false);
-
   const [widthSlider, setWidthSlider] = useState(0);
   const slider = useRef<any>(null);
 
   useEffect(() => {
-    // console.log(slider?.current?.scrollWidth - slider?.current?.offsetWidth);
     setWidthSlider(slider?.current?.scrollWidth - slider?.current?.offsetWidth);
   }, [loading]);
-
-  const truncateString = (string: string, count: number, i: number) => {
-    try {
-      return `${string.slice(0, count)}${string.length > count ? `...` : ``}`;
-    } catch (error) {
-      console.log(i);
-      console.log(error);
-    }
-  };
 
   return (
     <div className="flex flex-col py-5">
