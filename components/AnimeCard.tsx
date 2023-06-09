@@ -42,9 +42,10 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
 
         {/* ------- Anime Currently Airing ------- */}
         {data.status === "Currently Airing" && (
-          <p className="absolute top-1 left-1 bg-[#212529] text-xs text-white px-2 py-0.5 rounded-xl font-medium">
+          <div className="flex gap-1 items-center absolute top-1 left-1 bg-[#212529] text-xs text-white pl-2 pr-2.5 py-0.5 rounded-xl font-medium">
+            <div className="w-[9px] h-[9px] bg-[#d00000] rounded-full"></div>
             {data.status}
-          </p>
+          </div>
         )}
 
         <div className="absolute left-1 bottom-1 flex gap-1">
