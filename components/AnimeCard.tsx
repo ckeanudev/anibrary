@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaCrown } from "react-icons/fa";
 
 type AnimeCardProps = {
@@ -41,7 +42,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
         {/* <div className="absolute top-0 left-0 w-full h-full "></div> */}
 
         {/* ------- Anime Currently Airing ------- */}
-        {data.status === "Currently Airing" && (
+        {data.airing && (
           <div className="flex gap-1 items-center absolute top-1 left-1 bg-[#212529] text-xs text-white pl-2 pr-2.5 py-0.5 rounded-xl font-medium">
             <div className="w-[9px] h-[9px] bg-[#d00000] rounded-full"></div>
             {data.status}
@@ -130,9 +131,13 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
             </p>
           </div>
 
-          <button className="bg-[#25A18E] text-white py-1 px-2 rounded-sm w-full cursor-pointer font-semibold hover:bg-[#26c7af]">
-            See More
-          </button>
+          <Link
+            href={`/animeinfo/${data.mal_id}`}
+            style={{ textDecoration: "none" }}>
+            <button className="bg-[#25A18E] text-white py-1 px-2 rounded-sm w-full cursor-pointer font-semibold hover:bg-[#26c7af]">
+              See More
+            </button>
+          </Link>
         </div>
       )}
     </div>

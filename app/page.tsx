@@ -9,7 +9,6 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="relative">
-      <Topbar />
       <section className="h-[380px] w-full bg-[url('/images/main-wall.svg')] bg-cover bg-top flex justify-center items-center flex-col">
         <h1
           className="mt-16 text-5xl text-[#fff] font-bold text-center drop-shadow-lg"
