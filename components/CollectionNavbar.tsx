@@ -17,7 +17,7 @@ const CollectionNavbar = () => {
 
         <Navlinks href="/newseason">New Season</Navlinks>
         <Navlinks href="/topanime">Top Anime</Navlinks>
-        <Navlinks href="/topupcoming">Top Upcoming</Navlinks>
+        <Navlinks href="/upcomingseason">Upcoming Season</Navlinks>
         <Navlinks href="/topcharacter">Top Character</Navlinks>
       </div>
 

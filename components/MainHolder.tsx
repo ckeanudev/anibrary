@@ -62,10 +62,10 @@ const MainHolder = () => {
 
       {/* ----- Top Upcoming ----- */}
       <MainAnime
-        title={"Top Upcoming"}
+        title={"Upcoming Season"}
         loading={loadingTopUpcoming}
         data={dataTopUpcoming}
-        link={"/topupcoming"}
+        link={"/upcomingseason"}
       />
     </section>
   );
