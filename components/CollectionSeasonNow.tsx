@@ -14,6 +14,7 @@ const CollectionSeasonNow = () => {
     data: dataSeasonNow,
     hasNextPage,
     fetchNextPage,
+    isSuccess,
   } = useInfiniteQuery(`seasonNow`, fetchSeasonNow, {
     getNextPageParam: (lastPage: any, pages: any) => {
       const nextPage = pages[pages.length - 1];
@@ -35,11 +36,18 @@ const CollectionSeasonNow = () => {
         <h1 className="text-2xl font-semibold">New Season</h1>
       </div>
 
-      {!isLoading && (
-        <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 sm:gap-4 px-16 sm:px-0 pt-4 sm:pt-1">
-          {dataSeasonNow?.pages.map((page: any, i: number) => {
+      {isSuccess && (
+        <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 sm:gap-4 px-16 sm:px-0 pt-4 sm:pt-">
+          {dataSeasonNow?.pages?.map((page: any, i: number) => {
             return page?.data?.data.map((data: any, i: number) => {
-              return <AnimeCard data={data} key={i} />;
+              return (
+                <AnimeCard
+                  data={data}
+                  titleCount={45}
+                  infoCount={490}
+                  key={i}
+                />
+              );
             });
           })}
         </div>

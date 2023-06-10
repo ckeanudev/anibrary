@@ -4,17 +4,20 @@ import { useEffect, useRef, useState } from "react";
 import AnimeCard from "./AnimeCard";
 import { tempLoading } from "./tempData";
 import { Skeleton } from "@/components/ui/skeleton";
+import Link from "next/link";
 
 type MainAnimeProps = {
   title: string;
   loading: boolean;
   data: any;
+  link: string;
 };
 
 const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
   title,
   loading,
   data,
+  link,
 }) => {
   const [widthSlider, setWidthSlider] = useState(0);
   const slider = useRef<any>(null);
@@ -33,7 +36,11 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
           </h2>
         </div>
 
-        <p className="text-[#fff] font-semibold text-sm ">View All</p>
+        <Link href={link} style={{ textDecoration: "none" }}>
+          <p className="text-[#DEE2E6] font-semibold text-sm hover:text-white">
+            View All
+          </p>
+        </Link>
       </div>
 
       {loading ? (
@@ -74,7 +81,14 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
             className="px-3 py-1 flex gap-3">
             {/* ------- Anime Card ------- */}
             {data?.data?.data?.map((data: any, i: number) => {
-              return <AnimeCard data={data} key={i} />;
+              return (
+                <AnimeCard
+                  data={data}
+                  titleCount={31}
+                  infoCount={300}
+                  key={i}
+                />
+              );
             })}
           </motion.div>
         </motion.div>

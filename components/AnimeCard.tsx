@@ -6,9 +6,15 @@ import { FaCrown } from "react-icons/fa";
 
 type AnimeCardProps = {
   data: any;
+  titleCount: number;
+  infoCount: number;
 };
 
-const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
+const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
+  data,
+  titleCount,
+  infoCount,
+}) => {
   const [hoverInfo, setHoverInfo] = useState(false);
 
   const truncateString = (string: string, count: number, i: number) => {
@@ -88,7 +94,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
               : data.title != null
               ? data.title
               : data.title_japanese,
-            31,
+            titleCount,
             data.mal_id
           )}
         </h3>
@@ -131,7 +137,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
             </h4>
             <p className="text-white text-xs text-left">
               {data.synopsis != null
-                ? truncateString(data.synopsis, 300, data.mal_id)
+                ? truncateString(data.synopsis, infoCount, data.mal_id)
                 : ""}
             </p>
           </div>
