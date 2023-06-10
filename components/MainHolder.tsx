@@ -49,7 +49,7 @@ const MainHolder = () => {
         title={"New Season"}
         loading={loadingSeasonNow}
         data={dataSeasonNow}
-        link={"/newseason"}
+        link={"/newseasons"}
       />
 
       {/* ----- Top Anime ----- */}
@@ -65,7 +65,7 @@ const MainHolder = () => {
         title={"Upcoming Season"}
         loading={loadingTopUpcoming}
         data={dataTopUpcoming}
-        link={"/upcomingseason"}
+        link={"/upcomingseasons"}
       />
     </section>
   );

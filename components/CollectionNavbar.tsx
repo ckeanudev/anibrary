@@ -15,10 +15,10 @@ const CollectionNavbar = () => {
         </Link>
         <div className="w-[6px] h-[36px] bg-[#25A18E] mx-3 rounded-md"></div>
 
-        <Navlinks href="/newseason">New Season</Navlinks>
+        <Navlinks href="/newseasons">New Season</Navlinks>
         <Navlinks href="/topanime">Top Anime</Navlinks>
-        <Navlinks href="/upcomingseason">Upcoming Season</Navlinks>
-        <Navlinks href="/topcharacter">Top Character</Navlinks>
+        <Navlinks href="/upcomingseasons">Upcoming Season</Navlinks>
+        <Navlinks href="/topcharacters">Top Character</Navlinks>
       </div>
 
       <div>
