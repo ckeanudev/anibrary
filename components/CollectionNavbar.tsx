@@ -7,7 +7,7 @@ const CollectionNavbar = () => {
       <div className="flex items-center">
         <Link href="/" style={{ textDecoration: "none" }}>
           <h1
-            className="text-xl md:text-2xl text-[#fff] font-bold"
+            className="text-lg md:text-xl text-[#fff] font-bold"
             style={{ letterSpacing: "3px" }}>
             Ani<strong className="text-[#25A18E] font-bold">Brary</strong>
           </h1>

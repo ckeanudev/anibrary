@@ -34,10 +34,11 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
         <Image
           src={data.images.jpg.large_image_url}
           alt="animePic"
-          width={200}
-          height={300}
-          className="w-full h-[300px] overflow-hidden "
+          width={221}
+          height={313}
+          className="w-full h-[340px] overflow-hidden object-cover object-center"
           draggable={false}
+          priority
         />
 
         {/* <div className="absolute top-0 left-0 w-full h-full "></div> */}
@@ -119,7 +120,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
         <motion.div
           initial={{ opacity: 0, y: 200 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="absolute top-0 left-0 w-full h-full bg-[#000]/90 p-3 overflow-hidden flex flex-col justify-between">
           <div>
