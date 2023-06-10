@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useInfiniteQuery, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import AnimeCard from "./AnimeCard";
 
 const fetchUpcomingSeason: any = ({ pageParam = 1 }) => {

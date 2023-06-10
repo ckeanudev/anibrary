@@ -6,7 +6,7 @@ interface FirstAnimeInfoProps {
   data: any;
 }
 
-const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ loading, data }) => {
+const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ data }) => {
   return (
     <div className="flex flex-col md:flex-row p-3 md:p-5 gap-5 min-h-[250px]">
       <div className="min-w-full h-[105px] md:h-0 md:min-w-[240px] relative ">

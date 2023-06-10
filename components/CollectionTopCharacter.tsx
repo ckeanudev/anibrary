@@ -28,9 +28,6 @@ const CollectionTopCharacter = () => {
     onError: (err) => {
       console.log(err);
     },
-    onSuccess: (res) => {
-      console.log(res);
-    },
   });
 
   return (

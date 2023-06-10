@@ -1,12 +1,10 @@
 "use client";
 import axios from "axios";
-import Image from "next/image";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useQuery } from "react-query";
 import FirstAnimeInfo from "./FirstAnimeInfo";
 import SecondAnimeInfo from "./SecondAnimeInfo";
 import ThirdAnimeInfo from "./ThirdAnimeInfo";
-import MainAnime from "./MainAnime";
 import { Skeleton } from "./ui/skeleton";
 
 interface AnimeInfoProps {
@@ -52,9 +50,6 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
     onError: (err) => {
       console.log(err);
     },
-    // onSuccess: (res) => {
-    //   console.log(res.data.data);
-    // },
   });
 
   return (

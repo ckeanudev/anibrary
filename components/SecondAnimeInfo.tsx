@@ -11,7 +11,6 @@ interface FirstAnimeInfoProps {
 }
 
 const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
-  loadingAnime,
   loadingCharacters,
   dataAnime,
   dataCharacters,

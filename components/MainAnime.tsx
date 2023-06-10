@@ -23,9 +23,6 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
   const slider = useRef<any>(null);
 
   useEffect(() => {
-    // console.log(
-    //   `${title} ${slider?.current?.scrollWidth - slider?.current?.offsetWidth}`
-    // );
     setWidthSlider(slider?.current?.scrollWidth - slider?.current?.offsetWidth);
   }, [loading]);
 

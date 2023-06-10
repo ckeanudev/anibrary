@@ -9,10 +9,8 @@ const fetchSeasonNow: any = ({ pageParam = 1 }) => {
 
 const CollectionSeasonNow = () => {
   const {
-    isLoading,
     isFetching,
     data: dataAnime,
-    hasNextPage,
     fetchNextPage,
     isSuccess,
   } = useInfiniteQuery(`seasonNow`, fetchSeasonNow, {
