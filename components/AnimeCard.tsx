@@ -102,7 +102,13 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
         <div className="overflow-hidden">
           <p className="text-[#CED4DA] text-xs mb-1 mt-2">
             Released:{" "}
-            {data.year != null ? data.year : data.aired.prop.from.year}
+            {data.season != null &&
+              data.season.charAt(0).toUpperCase() + data.season.slice(1)}{" "}
+            {data.year != null
+              ? data.year
+              : data.aired.prop.from.year != null
+              ? data.aired.prop.from.year
+              : `N/A`}
           </p>
 
           <div className="flex gap-1 min-w-[500px]">
