@@ -50,13 +50,13 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
               return (
                 <div key={data} className="bg-[#1C2024]">
                   {/* Image Loader */}
-                  <Skeleton className="w-[200px] h-[300px]" />
+                  <Skeleton className="w-[200px] h-[300px] bg-[#25A18E]" />
 
                   {/* Info Loader */}
                   <div className="p-2 flex flex-col justify-between flex-1">
-                    <Skeleton className="w-[160px] h-[14px] mb-10" />
-                    <Skeleton className="w-[60px] h-[8px] mb-3" />
-                    <Skeleton className="w-[100px] h-[10px]" />
+                    <Skeleton className="bg-[#25A18E] w-[160px] h-[14px] mb-10" />
+                    <Skeleton className="bg-[#25A18E] w-[60px] h-[8px] mb-3" />
+                    <Skeleton className="bg-[#25A18E] w-[100px] h-[10px]" />
                   </div>
                 </div>
               );

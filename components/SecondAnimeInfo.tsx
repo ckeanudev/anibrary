@@ -190,7 +190,7 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
         </div>
       </div>
 
-      {/* Characters */}
+      {/* Characters & More */}
       <div className="w-full min-h-screen flex flex-col">
         <h1 className="text-white font-semibold text-xl md:text-2xl mb-3">
           Characters

@@ -18,9 +18,11 @@ const ThirdAnimeInfo: FC<ThirdAnimeInfoProps> = ({ loading, data }) => {
 
   return (
     <div className="flex flex-col py-5">
-      <h1 className="text-white font-semibold text-2xl mb-3 px-3">
-        Recommendations
-      </h1>
+      {!loading && (
+        <h1 className="text-white font-semibold text-2xl mb-3 px-3">
+          Recommendations
+        </h1>
+      )}
 
       {!loading && data.length == 0 && (
         <p className="text-[#CED4DA] px-3">No recommendations yet</p>

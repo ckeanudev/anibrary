@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaCrown } from "react-icons/fa";
@@ -43,7 +44,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
 
         {/* ------- Anime Currently Airing ------- */}
         {data.airing && (
-          <div className="flex gap-1 items-center absolute top-1 left-1 bg-[#212529] text-xs text-white pl-2 pr-2.5 py-0.5 rounded-xl font-medium">
+          <div className="flex gap-1 items-center absolute top-1 left-1 bg-[#212529] text-[10px] text-white pl-2 pr-2.5 py-0.5 rounded-xl font-medium">
             <div className="w-[9px] h-[9px] bg-[#d00000] rounded-full"></div>
             {data.status}
           </div>
@@ -115,7 +116,12 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
       {/* ------- Anime Summary Hover Effect ------- */}
 
       {hoverInfo && (
-        <div className="absolute top-0 left-0 w-full h-full bg-[#000]/90 p-3 overflow-hidden flex flex-col justify-between">
+        <motion.div
+          initial={{ opacity: 0, y: 200 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="absolute top-0 left-0 w-full h-full bg-[#000]/90 p-3 overflow-hidden flex flex-col justify-between">
           <div>
             <h4 className="mb-3 text-left text-white font-semibold">
               {data.title_english != null
@@ -134,11 +140,11 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
           <Link
             href={`/animeinfo/${data.mal_id}`}
             style={{ textDecoration: "none" }}>
-            <button className="bg-[#25A18E] text-white py-1 px-2 rounded-sm w-full cursor-pointer font-semibold hover:bg-[#26c7af]">
+            <button className="bg-[#25A18E] mb-2 text-white py-2 px-2 rounded-sm w-full cursor-pointer font-semibold hover:bg-[#26c7af]">
               See More
             </button>
           </Link>
-        </div>
+        </motion.div>
       )}
     </div>
   );
