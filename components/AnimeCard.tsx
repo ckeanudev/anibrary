@@ -41,8 +41,6 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({ data }) => {
           priority
         />
 
-        {/* <div className="absolute top-0 left-0 w-full h-full "></div> */}
-
         {/* ------- Anime Currently Airing ------- */}
         {data.airing && (
           <div className="flex gap-1 items-center absolute top-1 left-1 bg-[#212529] text-[10px] text-white pl-2 pr-2.5 py-0.5 rounded-xl font-medium">

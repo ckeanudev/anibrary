@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useInfiniteQuery, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import AnimeCard from "./AnimeCard";
 
 const fetchSeasonNow: any = ({ pageParam = 1 }) => {
@@ -26,9 +26,6 @@ const CollectionSeasonNow = () => {
     onError: (err) => {
       console.log(err);
     },
-    onSuccess: (res) => {
-      console.log(res);
-    },
   });
 
   return (
@@ -39,7 +36,7 @@ const CollectionSeasonNow = () => {
       </div>
 
       {!isLoading && (
-        <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 sm:gap-4 px-16 sm:px-0 pt-4 sm:pt-0">
+        <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 sm:gap-4 px-16 sm:px-0 pt-4 sm:pt-1">
           {dataSeasonNow?.pages.map((page: any, i: number) => {
             return page?.data?.data.map((data: any, i: number) => {
               return <AnimeCard data={data} key={i} />;

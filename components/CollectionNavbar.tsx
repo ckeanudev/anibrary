@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import Navlinks from "./Navlinks";
 
 const CollectionNavbar = () => {
   return (
@@ -12,20 +13,12 @@ const CollectionNavbar = () => {
             Ani<strong className="text-[#25A18E] font-bold">Brary</strong>
           </h1>
         </Link>
-        <div className="w-[6px] h-[30px] bg-[#25A18E] mx-3 rounded-md"></div>
+        <div className="w-[6px] h-[36px] bg-[#25A18E] mx-3 rounded-md"></div>
 
-        <p className="text-[#DEE2E6] py-2 px-2.5 hover:bg-[#212529] rounded-md cursor-pointer ">
-          New Season
-        </p>
-        <p className="text-[#DEE2E6] py-2 px-2.5 hover:bg-[#212529] rounded-md cursor-pointer ">
-          Top Anime
-        </p>
-        <p className="text-[#DEE2E6] py-2 px-2.5 hover:bg-[#212529] rounded-md cursor-pointer ">
-          Top Upcoming
-        </p>
-        <p className="text-[#DEE2E6] py-2 px-2.5 hover:bg-[#212529] rounded-md cursor-pointer ">
-          Top Character
-        </p>
+        <Navlinks href="/newseason">New Season</Navlinks>
+        <Navlinks href="/topanime">Top Anime</Navlinks>
+        <Navlinks href="/topupcoming">Top Upcoming</Navlinks>
+        <Navlinks href="/topcharacter">Top Character</Navlinks>
       </div>
 
       <div>

@@ -33,7 +33,7 @@ const RecomendCard: FC<RecomendCardProps> = ({ data }) => {
           alt="Recommendations Images"
           width={200}
           height={280}
-          className="w-full h-[240px] object-cover rounded-md"
+          className="w-full h-[240px] object-cover object-center rounded-md"
           draggable={false}
         />
       </div>
