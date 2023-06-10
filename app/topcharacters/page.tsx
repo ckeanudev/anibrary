@@ -1,4 +1,5 @@
 import CollectionNavbar from "@/components/CollectionNavbar";
+import CollectionTopCharacter from "@/components/CollectionTopCharacter";
 
 export const metadata = {
   title: "AniBrary | Top Characters",
@@ -9,6 +10,7 @@ const page = () => {
   return (
     <main className="bg-[#161A1D] w-full text-white">
       <CollectionNavbar />
+      <CollectionTopCharacter />
     </main>
   );
 };

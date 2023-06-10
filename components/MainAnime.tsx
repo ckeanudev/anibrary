@@ -23,11 +23,14 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
   const slider = useRef<any>(null);
 
   useEffect(() => {
+    // console.log(
+    //   `${title} ${slider?.current?.scrollWidth - slider?.current?.offsetWidth}`
+    // );
     setWidthSlider(slider?.current?.scrollWidth - slider?.current?.offsetWidth);
   }, [loading]);
 
   return (
-    <div className="mb-5">
+    <div className="mb-5 w-full">
       <div className="w-full flex justify-between items-center p-3">
         <div className="flex items-center gap-2">
           <div className="w-[16px] h-[16px] bg-[#25A18E] rounded-full"></div>
@@ -43,17 +46,16 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
         </Link>
       </div>
 
-      {loading ? (
+      <motion.div
+        ref={slider}
+        className="max-w-full overflow-hidden cursor-grab">
         <motion.div
-          ref={slider}
-          className="max-w-full overflow-hidden cursor-grab">
-          <motion.div
-            drag="x"
-            whileTap={{ cursor: "grabbing" }}
-            dragConstraints={{ right: 0, left: -widthSlider }}
-            className="px-3 py-1 flex gap-3">
-            {/* ------- Loader Anime Card ------- */}
-            {tempLoading.map((data: number) => {
+          drag="x"
+          whileTap={{ cursor: "grabbing" }}
+          dragConstraints={{ right: 0, left: -widthSlider }}
+          className="px-3 py-1 flex gap-3">
+          {loading &&
+            tempLoading.map((data: number) => {
               return (
                 <div key={data} className="bg-[#1C2024]">
                   {/* Image Loader */}
@@ -68,19 +70,10 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
                 </div>
               );
             })}
-          </motion.div>
-        </motion.div>
-      ) : (
-        <motion.div
-          ref={slider}
-          className="max-w-full overflow-hidden cursor-grab">
-          <motion.div
-            drag="x"
-            whileTap={{ cursor: "grabbing" }}
-            dragConstraints={{ right: 0, left: -widthSlider }}
-            className="px-3 py-1 flex gap-3">
-            {/* ------- Anime Card ------- */}
-            {data?.data?.data?.map((data: any, i: number) => {
+
+          {/* ------- Anime Card ------- */}
+          {!loading &&
+            data?.data?.data?.map((data: any, i: number) => {
               return (
                 <AnimeCard
                   data={data}
@@ -90,9 +83,8 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
                 />
               );
             })}
-          </motion.div>
         </motion.div>
-      )}
+      </motion.div>
     </div>
   );
 };

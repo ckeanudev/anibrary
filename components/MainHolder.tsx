@@ -43,7 +43,7 @@ const MainHolder = () => {
   );
 
   return (
-    <section className="min-h-screen bg-[#161A1D] pb-5">
+    <section className="w-full min-h-screen bg-[#161A1D] pb-5">
       {/* ----- Season Now / Currently Airing ----- */}
       <MainAnime
         title={"New Season"}
