@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CollectionNavbar = () => {
   return (
-    <nav className="w-full pt-2 fixed top-0 flex justify-between items-center py-0 px-5 bg-[#161A1D]/60 backdrop-blur z-10">
+    <nav className="w-full fixed top-0 flex justify-between items-center py-2 px-5 bg-[#161A1D]/60 backdrop-blur z-10">
       <div className="flex items-center">
         <Link href="/" style={{ textDecoration: "none" }}>
           <h1
