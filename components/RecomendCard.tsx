@@ -20,7 +20,7 @@ const RecomendCard: FC<RecomendCardProps> = ({ data }) => {
 
   return (
     <div
-      className="flex flex-col min-w-[150px] relative rounded-md overflow-hidden"
+      className="flex flex-col min-w-[150px] max-w-[150px] relative rounded-md overflow-hidden"
       onMouseEnter={() => {
         setHoverInfo(true);
       }}
@@ -45,7 +45,7 @@ const RecomendCard: FC<RecomendCardProps> = ({ data }) => {
 
       {hoverInfo && (
         <div className="flex flex-col justify-between absolute top-0 left-0 w-full h-full bg-[#000]/80 p-3">
-          <h4 className="text-white text-lg font-semibold text-left text">
+          <h4 className="text-white text-base font-semibold text-left text">
             {data.entry.title}
           </h4>
 
