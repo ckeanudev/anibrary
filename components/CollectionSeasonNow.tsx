@@ -11,7 +11,7 @@ const CollectionSeasonNow = () => {
   const {
     isLoading,
     isFetching,
-    data: dataSeasonNow,
+    data: dataAnime,
     hasNextPage,
     fetchNextPage,
     isSuccess,
@@ -38,7 +38,7 @@ const CollectionSeasonNow = () => {
 
       {isSuccess && (
         <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 sm:gap-4 px-16 sm:px-0 pt-4 sm:pt-">
-          {dataSeasonNow?.pages?.map((page: any, i: number) => {
+          {dataAnime?.pages?.map((page: any, i: number) => {
             return page?.data?.data.map((data: any, i: number) => {
               return (
                 <AnimeCard

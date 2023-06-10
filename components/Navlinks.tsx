@@ -18,7 +18,7 @@ const Navlinks: FC<NavlinksProps> = ({ href, children }) => {
         className={`py-1.5 px-2.5 mr-1 ${
           active
             ? `bg-[#25A18E] text-[#white] font-medium`
-            : `text-[#DEE2E6] bg-transparent hover:bg-[#212529]`
+            : `text-[#DEE2E6] bg-transparent hover:bg-white/10`
         }  rounded-md cursor-pointer `}>
         {children}
       </p>
