@@ -20,9 +20,9 @@ const CharacterInfo: FC<CharacterInfoProps> = ({ characterInfoId }) => {
       onError: (err) => {
         console.log(err);
       },
-      onSuccess: (res) => {
-        console.log(res.data.data);
-      },
+      // onSuccess: (res) => {
+      //   console.log(res.data.data);
+      // },
     });
 
   return (

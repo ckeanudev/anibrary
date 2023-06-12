@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
+import { FaMedal, FaStar, FaHeart } from "react-icons/fa";
 
 interface FirstCharacterInfoProps {
   loading: boolean;
@@ -9,19 +10,65 @@ interface FirstCharacterInfoProps {
 const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
   return (
     <div className="flex flex-col md:flex-row p-3 md:p-5 gap-5 min-h-[250px]">
-      <div className="min-w-full h-[130px] md:h-0 md:min-w-[240px] relative ">
-        <Image
-          src={data.images.jpg.image_url}
-          alt="Character Image"
-          width={200}
-          height={320}
-          className="rounded-lg absolute top-[-100px] left-[50%] translate-x-[-50%] w-[150px] md:min-w-[200px] drop-shadow-md"
-        />
+      <div className="min-w-full md:min-w-[240px] md:max-w-[240px] relative">
+        <div className="flex flex-col relative md:bottom-16">
+          <Image
+            src={data.images.jpg.image_url}
+            alt="Character Image"
+            width={200}
+            height={320}
+            className="rounded-lg mx-auto w-[150px] md:min-w-[180px] drop-shadow-md mb-4"
+          />
+
+          {/* Character's Name in Mobile */}
+          <div className=" gap-1 items-center mb-4 flex md:hidden flex-wrap">
+            <h1 className="text-white text-xl font-semibold ">
+              {data.name != null && data.name}{" "}
+              {/* {data.name_kanji != null && `(${data.name_kanji})`} */}
+            </h1>
+            <p className="text-white text-sm">
+              {data.name_kanji != null && `(${data.name_kanji})`}
+            </p>
+          </div>
+
+          {/* Favorites Votes*/}
+          <div className="flex items-center justify-between bg-[#1C2024] rounded-md py-1.5 px-3 font-semibold mb-3">
+            <p className="text-white text-base flex items-center gap-2 ">
+              <FaHeart size={18} className="text-[#d90429]" /> Favorites
+            </p>
+            <p className="text-white text-base">
+              {data.favorites.toLocaleString("en-US")}
+            </p>
+          </div>
+
+          {/* Character's Nicknames */}
+          <div className="flex flex-col bg-[#1C2024] rounded-md py-1.5 px-3 ">
+            <p className="text-white font-semibold mb-1">Nicknames</p>
+
+            <div className="flex flex-wrap gap-1">
+              {data.nicknames.map((data: any, i: number) => {
+                return (
+                  <p
+                    className="text-white text-xs bg-[#343A40] py-0.5 px-1.5 rounded"
+                    key={i}>
+                    {data}
+                  </p>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </div>
       <div className="flex-1">
-        <h1 className="text-white text-xl md:text-3xl font-semibold mb-1 md:mb-3">
-          {data.name != null && data.name}
-        </h1>
+        <div className=" gap-1 items-center mb-1 md:mb-3 hidden md:flex flex-wrap">
+          <h1 className="text-white text-xl md:text-3xl font-semibold ">
+            {data.name != null && data.name}{" "}
+            {/* {data.name_kanji != null && `(${data.name_kanji})`} */}
+          </h1>
+          <p className="text-white text-xl">
+            {data.name_kanji != null && `(${data.name_kanji})`}
+          </p>
+        </div>
 
         <p
           className="text-[#DEE2E6] text-xs md:text-sm"

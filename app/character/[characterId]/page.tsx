@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Topbar from "@/components/Topbar";
 import CharacterInfo from "@/components/CharacterInfo";
+import CollectionNavbar from "@/components/CollectionNavbar";
 
 export const metadata = {
   title: "AniBrary | Character Info",
@@ -16,11 +17,11 @@ interface CharacterInfoPageProps {
 const CharacterInfoPage: FC<CharacterInfoPageProps> = ({ params }) => {
   return (
     <main className="relative">
-      <Topbar />
+      <CollectionNavbar />
 
-      <div className="bg-[#161A1D] h-[160px] md:h-[230px] w-full bg-[url('/images/animeinfo-wall.svg')] bg-cover bg-center"></div>
+      <div className="bg-[#161A1D] h-[160px] md:h-[230px] w-full bg-[url('/images/animeinfo-wall.svg')] bg-cover bg-center absolute md:static top-0 left-0"></div>
 
-      <section className="w-full bg-[#161A1D]">
+      <section className="w-full bg-[#161A1D] pt-16 md:pt-0 ">
         <CharacterInfo characterInfoId={params.characterId} />
       </section>
     </main>
