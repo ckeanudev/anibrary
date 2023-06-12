@@ -16,6 +16,7 @@ const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ success, data }) => {
           alt=""
           width={220}
           height={300}
+          priority
           className="rounded-lg absolute top-[-100px] left-[50%] translate-x-[-50%] w-[150px] md:min-w-[220px] object-cover object-center h-auto drop-shadow-md bg-[#161A1D]"
         />
       </div>
