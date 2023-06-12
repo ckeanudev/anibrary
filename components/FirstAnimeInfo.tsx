@@ -28,7 +28,9 @@ const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ data }) => {
             : data.title_japanese}
         </h1>
 
-        <p className="text-[#DEE2E6] text-xs md:text-sm">
+        <p
+          className="text-[#DEE2E6] text-xs md:text-sm"
+          style={{ whiteSpace: "pre-line" }}>
           {data.synopsis != null ? data.synopsis : ""}
         </p>
       </div>
