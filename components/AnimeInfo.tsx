@@ -83,18 +83,20 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
         )}
 
         {/* --------- Anime Info First --------- */}
-        {!loadingAnimeInfoFull && (
+        {successAnimeInfoFull && (
           <FirstAnimeInfo
             loading={loadingAnimeInfoFull}
+            success={successAnimeInfoFull}
             data={dataAnimeInfoFull?.data.data}
           />
         )}
 
         {/* --------- Anime Info Second --------- */}
-        {!loadingAnimeInfoFull && (
+        {successAnimeInfoFull && (
           <SecondAnimeInfo
             loadingAnime={loadingAnimeInfoFull}
             loadingCharacters={loadingAnimeCaracters}
+            success={successAnimeCaracters}
             dataAnime={dataAnimeInfoFull?.data.data}
             dataCharacters={dataAnimeCaracters?.data.data}
           />
@@ -102,11 +104,13 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
 
         {/* --------- Anime Info Third Recommendations --------- */}
 
-        <ThirdAnimeInfo
-          loading={loadingAnimeRecommendations}
-          success={successAnimeRecommendations}
-          data={dataAnimeRecommendations?.data.data}
-        />
+        {successAnimeRecommendations && (
+          <ThirdAnimeInfo
+            loading={loadingAnimeRecommendations}
+            success={successAnimeRecommendations}
+            data={dataAnimeRecommendations?.data.data}
+          />
+        )}
       </div>
     </>
   );

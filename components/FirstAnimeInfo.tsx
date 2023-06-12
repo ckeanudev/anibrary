@@ -3,10 +3,11 @@ import { FC } from "react";
 
 interface FirstAnimeInfoProps {
   loading: boolean;
+  success: boolean;
   data: any;
 }
 
-const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ data }) => {
+const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ success, data }) => {
   return (
     <div className="flex flex-col md:flex-row p-3 md:p-5 gap-5 min-h-[250px]">
       <div className="min-w-full h-[105px] md:h-0 md:min-w-[240px] relative ">
@@ -15,7 +16,7 @@ const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ data }) => {
           alt=""
           width={220}
           height={312}
-          className="rounded-lg absolute top-[-100px] left-[50%] translate-x-[-50%] w-[150px] md:min-w-[220px] drop-shadow-md"
+          className="rounded-lg absolute top-[-100px] left-[50%] translate-x-[-50%] w-[150px] md:min-w-[220px] drop-shadow-md bg-[#161A1D]"
         />
       </div>
       <div className="flex-1">
