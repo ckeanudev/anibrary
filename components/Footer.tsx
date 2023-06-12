@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="bg-[#101314] flex flex-col md:flex-row gap-3 md:gap-0 items-center justify-between pt-6 px-6 pb-8">
-      <p className="text-white">
+      <p className="text-white text-sm">
         Developed & Designed by{" "}
         <a
           className="text-[#25A18E] font-semibold"
@@ -11,7 +11,7 @@ const Footer = () => {
           Ckeanu
         </a>{" "}
       </p>
-      <p className="text-white">
+      <p className="text-white text-sm">
         Powered by{" "}
         <a
           className="text-[#25A18E] font-semibold"
