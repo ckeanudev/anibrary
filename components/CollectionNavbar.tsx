@@ -1,10 +1,15 @@
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import Navlinks from "./Navlinks";
+import { MdClose } from "react-icons/md";
+import { BiMenuAltRight } from "react-icons/bi";
+import { useState } from "react";
 
 const CollectionNavbar = () => {
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+
   return (
-    <nav className="w-full fixed top-0 flex justify-between items-center py-2 px-5 bg-[#161A1D]/60 backdrop-blur z-10">
+    <nav className="w-full fixed top-0 flex justify-between items-center pt-2 pb-2.5 px-5 bg-[#161A1D]/60 backdrop-blur z-10">
       <div className="flex items-center">
         <Link href="/" style={{ textDecoration: "none" }}>
           <h1
@@ -13,17 +18,50 @@ const CollectionNavbar = () => {
             Ani<strong className="text-[#25A18E] font-bold">Brary</strong>
           </h1>
         </Link>
-        <div className="w-[6px] h-[36px] bg-[#25A18E] mx-3 rounded-md"></div>
 
-        <Navlinks href="/newseasons">New Season</Navlinks>
-        <Navlinks href="/topanime">Top Anime</Navlinks>
-        <Navlinks href="/upcomingseasons">Upcoming Season</Navlinks>
-        <Navlinks href="/topcharacters">Top Character</Navlinks>
+        <div className="hidden lg:block w-[6px] h-[34px] bg-[#25A18E] mx-3 rounded-md"></div>
+
+        <div
+          style={{ transition: `0.3s ease` }}
+          className={`fixed lg:static top-0  ${
+            showMenu ? `left-0 ` : `left-[100%]`
+          } h-screen lg:h-auto flex flex-col lg:flex-row bg-[#161A1D] lg:bg-transparent w-screen lg:w-auto py-5 lg:py-0 px-6 lg:px-0 `}>
+          <div className=" flex lg:hidden justify-end mb-5">
+            <p
+              className="flex"
+              onClick={() => {
+                setShowMenu((prev) => !prev);
+              }}>
+              <MdClose size={30} className="text-white cursor-pointer" />
+            </p>
+          </div>
+
+          <Navlinks href="/newseasons" setShowMenu={setShowMenu}>
+            New Season
+          </Navlinks>
+          <Navlinks href="/topanime" setShowMenu={setShowMenu}>
+            Top Anime
+          </Navlinks>
+          <Navlinks href="/upcomingseasons" setShowMenu={setShowMenu}>
+            Upcoming Season
+          </Navlinks>
+          <Navlinks href="/topcharacters" setShowMenu={setShowMenu}>
+            Top Character
+          </Navlinks>
+        </div>
       </div>
 
-      <div>
+      <p
+        className="flex lg:hidden cursor-pointer"
+        onClick={() => {
+          setShowMenu((prev) => !prev);
+        }}>
+        <BiMenuAltRight size={32} className="text-white" />
+      </p>
+
+      <div className="hidden lg:block">
         <Input
-          className="w-[300px] bg-[#F8F9FA]"
+          className="w-[280px] bg-[#F8F9FA]"
           placeholder="Search your favorite anime"
         />
       </div>
