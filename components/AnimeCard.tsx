@@ -101,7 +101,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
 
         <div className="overflow-hidden">
           <p className="text-[#CED4DA] text-xs mb-1 mt-2">
-            Released:{" "}
+            {data.status === "Not yet aired" ? `Release` : `Released`}:{" "}
             {data.season != null &&
               data.season.charAt(0).toUpperCase() + data.season.slice(1)}{" "}
             {data.year != null
@@ -112,15 +112,42 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
           </p>
 
           <div className="flex gap-1 min-w-[500px]">
-            {data.genres.map((data: any) => {
-              return (
-                <p
-                  className="text-xs text-white bg-[#343A40] p-1 rounded-sm"
-                  key={data.mal_id}>
-                  {data.name}
-                </p>
-              );
-            })}
+            {/* ------- genres ------- */}
+            {data.genres.length > 0 &&
+              data.genres != null &&
+              data.genres.map((data: any) => {
+                return (
+                  <p
+                    className="text-xs text-white bg-[#343A40] p-1 rounded-sm"
+                    key={data.mal_id}>
+                    {data.name}
+                  </p>
+                );
+              })}
+            {/* ------- themes ------- */}
+            {data.themes.length > 0 &&
+              data.themes != null &&
+              data.themes.map((data: any) => {
+                return (
+                  <p
+                    className="text-xs text-white bg-[#343A40] p-1 rounded-sm"
+                    key={data.mal_id}>
+                    {data.name}
+                  </p>
+                );
+              })}
+            {/* ------- demographics ------- */}
+            {data.demographics.length > 0 &&
+              data.demographics != null &&
+              data.demographics.map((data: any) => {
+                return (
+                  <p
+                    className="text-xs text-white bg-[#343A40] p-1 rounded-sm"
+                    key={data.mal_id}>
+                    {data.name}
+                  </p>
+                );
+              })}
           </div>
         </div>
       </div>
