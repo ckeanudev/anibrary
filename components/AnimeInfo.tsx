@@ -26,22 +26,25 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
     );
   };
 
-  const { isLoading: loadingAnimeInfoFull, data: dataAnimeInfoFull } = useQuery(
-    `animeInfoFull`,
-    fetchAnimeInfo,
-    {
-      onError: (err) => {
-        console.log(err);
-      },
-    }
-  );
+  const {
+    isLoading: loadingAnimeInfoFull,
+    isSuccess: successAnimeInfoFull,
+    data: dataAnimeInfoFull,
+  } = useQuery(`animeInfoFull`, fetchAnimeInfo, {
+    onError: (err) => {
+      console.log(err);
+    },
+  });
 
-  const { isLoading: loadingAnimeCaracters, data: dataAnimeCaracters } =
-    useQuery(`animeCharacters`, fetchAnimeCharacters, {
-      onError: (err) => {
-        console.log(err);
-      },
-    });
+  const {
+    isLoading: loadingAnimeCaracters,
+    isSuccess: successAnimeCaracters,
+    data: dataAnimeCaracters,
+  } = useQuery(`animeCharacters`, fetchAnimeCharacters, {
+    onError: (err) => {
+      console.log(err);
+    },
+  });
 
   const {
     isLoading: loadingAnimeRecommendations,
