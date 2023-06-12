@@ -37,7 +37,7 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
         </div>
 
         <Link href={link} style={{ textDecoration: "none" }}>
-          <p className="text-[#DEE2E6] font-semibold text-sm hover:text-white">
+          <p className="text-[#CED4DA] font-semibold text-sm hover:text-white">
             View All
           </p>
         </Link>
