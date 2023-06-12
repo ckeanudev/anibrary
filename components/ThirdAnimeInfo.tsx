@@ -24,11 +24,11 @@ const ThirdAnimeInfo: FC<ThirdAnimeInfoProps> = ({ loading, data }) => {
         </h1>
       )}
 
-      {!loading && data.length == 0 && (
+      {!loading && (data?.length > 0 || data == null) && (
         <p className="text-[#CED4DA] px-3">No recommendations yet</p>
       )}
 
-      {!loading && data.length > 0 && (
+      {!loading && data?.length > 0 && (
         <motion.div
           ref={slider}
           className="max-w-full overflow-hidden cursor-grab">

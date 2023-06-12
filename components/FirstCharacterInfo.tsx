@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 import { FaMedal, FaStar, FaHeart } from "react-icons/fa";
 
@@ -9,7 +10,7 @@ interface FirstCharacterInfoProps {
 
 const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
   return (
-    <div className="flex flex-col md:flex-row p-3 md:p-5 gap-5 min-h-[250px]">
+    <div className="flex flex-col md:flex-row p-3 md:p-5 gap-2 md:gap-5 min-h-[250px]">
       <div className="min-w-full md:min-w-[240px] md:max-w-[240px] relative">
         <div className="flex flex-col relative md:bottom-16">
           <Image
@@ -20,7 +21,7 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
             className="rounded-lg mx-auto w-[150px] md:min-w-[180px] drop-shadow-md mb-4"
           />
 
-          {/* Character's Name in Mobile */}
+          {/* Character's Name for Mobile */}
           <div className=" gap-1 items-center mb-4 flex md:hidden flex-wrap">
             <h1 className="text-white text-xl font-semibold ">
               {data.name != null && data.name}{" "}
@@ -32,7 +33,7 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
           </div>
 
           {/* Favorites Votes*/}
-          <div className="flex items-center justify-between bg-[#1C2024] rounded-md py-1.5 px-3 font-semibold mb-3">
+          <div className="flex items-center justify-between bg-[#1C2024] py-1.5 px-3 rounded-md  font-semibold mb-3">
             <p className="text-white text-base flex items-center gap-2 ">
               <FaHeart size={18} className="text-[#d90429]" /> Favorites
             </p>
@@ -42,8 +43,8 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
           </div>
 
           {/* Character's Nicknames */}
-          <div className="flex flex-col bg-[#1C2024] rounded-md py-1.5 px-3 ">
-            <p className="text-white font-semibold mb-1">Nicknames</p>
+          <div className="flex flex-col bg-[#1C2024] py-2 px-3 rounded-md  mb-3">
+            <p className="text-white font-semibold mb-1 ">Nicknames</p>
 
             <div className="flex flex-wrap gap-1">
               {data.nicknames.map((data: any, i: number) => {
@@ -57,6 +58,35 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
               })}
             </div>
           </div>
+
+          {/* Animeography for Desktop */}
+          {data.anime.length > 0 && (
+            <div className="hidden md:flex flex-col mt-1 pt-2 border-t-[1px] border-[#343A40]">
+              <p className="text-white font-semibold mb-2">Animeography</p>
+
+              <div className="flex flex-col gap-2">
+                {data.anime.map((data: any, i: number) => {
+                  return (
+                    <Link href={`/animeinfo/${data.anime.mal_id}`}>
+                      <div className="flex rounded overflow-hidden cursor-pointer bg-[#1C2024] hover:bg-[#212529]">
+                        <Image
+                          src={data.anime.images.jpg.image_url}
+                          width={50}
+                          height={80}
+                          alt="anime Img"
+                        />
+                        <div className="flex-1  p-2 ">
+                          <p className="text-white text-xs">
+                            {data.anime.title != null && data.anime.title}
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex-1">
@@ -75,6 +105,36 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
           style={{ whiteSpace: "pre-line" }}>
           {data.about != null && data.about}
         </p>
+
+        {/* Animeography for Mobile */}
+        {data.anime.length > 0 && (
+          <div className="flex md:hidden flex-col mt-1 pt-2 border-t-[1px] border-[#343A40]">
+            <p className="text-white font-semibold mb-2">Animeography</p>
+
+            <div className="grid grid-cols-3 gap-3">
+              {data.anime.map((data: any, i: number) => {
+                return (
+                  <Link href={`/animeinfo/${data.anime.mal_id}`} key={i}>
+                    <div className="flex flex-col rounded overflow-hidden cursor-pointer bg-[#1C2024] h-full">
+                      <Image
+                        src={data.anime.images.jpg.image_url}
+                        width={120}
+                        height={180}
+                        alt="anime Img"
+                        className="w-full h-[180px] object-cover object-center"
+                      />
+                      <div className="flex-1 p-2">
+                        <p className="text-white text-xs">
+                          {data.anime.title != null && data.anime.title}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
