@@ -6,6 +6,7 @@ import FirstAnimeInfo from "./FirstAnimeInfo";
 import SecondAnimeInfo from "./SecondAnimeInfo";
 import ThirdAnimeInfo from "./ThirdAnimeInfo";
 import { TbLoader3 } from "react-icons/tb";
+import Footer from "./Footer";
 
 interface AnimeInfoProps {
   animeInfoId: any;
@@ -98,6 +99,7 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
           />
         )}
       </div>
+      <Footer />
     </>
   );
 };
