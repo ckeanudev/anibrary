@@ -205,10 +205,10 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
               <div className="p-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3">
                 {dataCharacters.map((data: any) => {
                   return (
-                    <Link href={`/character/${data.character.mal_id}`}>
-                      <div
-                        className="bg-[#1C2024] md:hover:bg-[#212529] overflow-hidden rounded-md flex flex-col h-full cursor-pointer"
-                        key={data.character.mal_id}>
+                    <Link
+                      href={`/character/${data.character.mal_id}`}
+                      key={data.character.mal_id}>
+                      <div className="bg-[#1C2024] md:hover:bg-[#212529] overflow-hidden rounded-md flex flex-col h-full cursor-pointer">
                         <div className="relative flex">
                           <Image
                             src={data.character.images.jpg.image_url}
