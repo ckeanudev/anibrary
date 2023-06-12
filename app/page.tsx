@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import MainHolder from "@/components/MainHolder";
 
 export const metadata = {
@@ -7,7 +8,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative bg-[#161A1D]">
       <section className="bg-[#161A1D] h-[180px] md:h-[260px]  xl:h-[380px] w-full bg-[url('/images/animeinfo-wall.svg')] bg-cover bg-center flex justify-center items-center flex-col">
         <h1
           className="mt-10 md:mt-16 text-[26px] md:text-4xl xl:text-5xl text-[#fff] font-bold text-center drop-shadow-lg"
@@ -29,6 +30,8 @@ export default function Home() {
       </section>
 
       <MainHolder />
+
+      <Footer />
     </main>
   );
 }
