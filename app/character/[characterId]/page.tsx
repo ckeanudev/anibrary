@@ -14,8 +14,6 @@ interface CharacterInfoPageProps {
 }
 
 const CharacterInfoPage: FC<CharacterInfoPageProps> = ({ params }) => {
-  console.log(params);
-
   return (
     <main className="relative">
       <Topbar />
