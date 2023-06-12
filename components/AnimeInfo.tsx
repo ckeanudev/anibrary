@@ -45,6 +45,7 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
 
   const {
     isLoading: loadingAnimeRecommendations,
+    isSuccess: successAnimeRecommendations,
     data: dataAnimeRecommendations,
   } = useQuery(`animeRecommendations`, fetchAnimeRecommendations, {
     onError: (err) => {
@@ -100,6 +101,7 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
 
         <ThirdAnimeInfo
           loading={loadingAnimeRecommendations}
+          success={successAnimeRecommendations}
           data={dataAnimeRecommendations?.data.data}
         />
       </div>

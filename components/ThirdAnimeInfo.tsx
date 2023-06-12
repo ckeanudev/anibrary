@@ -5,10 +5,15 @@ import RecomendCard from "./RecomendCard";
 
 interface ThirdAnimeInfoProps {
   loading: boolean;
+  success: boolean;
   data: any;
 }
 
-const ThirdAnimeInfo: FC<ThirdAnimeInfoProps> = ({ loading, data }) => {
+const ThirdAnimeInfo: FC<ThirdAnimeInfoProps> = ({
+  loading,
+  success,
+  data,
+}) => {
   const [widthSlider, setWidthSlider] = useState(0);
   const slider = useRef<any>(null);
 
@@ -18,17 +23,17 @@ const ThirdAnimeInfo: FC<ThirdAnimeInfoProps> = ({ loading, data }) => {
 
   return (
     <div className="flex flex-col py-5">
-      {!loading && (
+      {success && (
         <h1 className="text-white font-semibold text-2xl mb-3 px-3">
           Recommendations
         </h1>
       )}
 
-      {!loading && (data?.length > 0 || data == null) && (
+      {success && (data?.length == 0 || data == null) && (
         <p className="text-[#CED4DA] px-3">No recommendations yet</p>
       )}
 
-      {!loading && data?.length > 0 && (
+      {success && data?.length > 0 && (
         <motion.div
           ref={slider}
           className="max-w-full overflow-hidden cursor-grab">
