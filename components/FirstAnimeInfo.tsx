@@ -15,8 +15,8 @@ const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ success, data }) => {
           src={data.images.jpg.large_image_url}
           alt=""
           width={220}
-          height={312}
-          className="rounded-lg absolute top-[-100px] left-[50%] translate-x-[-50%] w-[150px] md:min-w-[220px] drop-shadow-md bg-[#161A1D]"
+          height={300}
+          className="rounded-lg absolute top-[-100px] left-[50%] translate-x-[-50%] w-[150px] md:min-w-[220px] object-cover object-center h-auto drop-shadow-md bg-[#161A1D]"
         />
       </div>
       <div className="flex-1">
