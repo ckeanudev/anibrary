@@ -56,6 +56,13 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
         )}
 
         <div className="absolute left-1 bottom-1 flex gap-1">
+          {/* ------- Anime Score ------- */}
+          {data.score != null && (
+            <p className="bg-[#25A18E] text-white px-2 py-1 rounded-md text-sm font-semibold">
+              {data.score}
+            </p>
+          )}
+
           {/* ------- Anime Rank 1, 2 & 3 ------- */}
           {data.rank == 1 && (
             <p className={`bg-[#ffc600] py-1 px-2 rounded-md text-white flex`}>
@@ -70,13 +77,6 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
           {data.rank == 3 && (
             <p className={`bg-[#9d6806] py-1 px-2 rounded-md text-white flex`}>
               <FaCrown />
-            </p>
-          )}
-
-          {/* ------- Anime Score ------- */}
-          {data.score != null && (
-            <p className="bg-[#25A18E] text-white px-2 py-1 rounded-md text-sm font-semibold">
-              {data.score}
             </p>
           )}
         </div>
