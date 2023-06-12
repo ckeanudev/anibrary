@@ -1,4 +1,3 @@
-import CollectionNavbar from "@/components/CollectionNavbar";
 import CollectionTopAnime from "@/components/CollectionTopAnime";
 
 export const metadata = {
@@ -9,7 +8,6 @@ export const metadata = {
 const page = () => {
   return (
     <main className="bg-[#161A1D] w-full text-white">
-      <CollectionNavbar />
       <CollectionTopAnime />
     </main>
   );
