@@ -43,21 +43,23 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
           </div>
 
           {/* Character's Nicknames */}
-          <div className="flex flex-col bg-[#1C2024] py-2 px-3 rounded-md  mb-3">
-            <p className="text-white font-semibold mb-1 ">Nicknames</p>
+          {data.nicknames.length > 0 && data.nicknames != null && (
+            <div className="flex flex-col bg-[#1C2024] py-2 px-3 rounded-md  mb-3">
+              <p className="text-white font-semibold mb-1 ">Nicknames</p>
 
-            <div className="flex flex-wrap gap-1">
-              {data.nicknames.map((data: any, i: number) => {
-                return (
-                  <p
-                    className="text-white text-xs bg-[#343A40] py-0.5 px-1.5 rounded"
-                    key={i}>
-                    {data}
-                  </p>
-                );
-              })}
+              <div className="flex flex-wrap gap-1">
+                {data.nicknames.map((data: any, i: number) => {
+                  return (
+                    <p
+                      className="text-white text-xs bg-[#343A40] py-0.5 px-1.5 rounded"
+                      key={i}>
+                      {data}
+                    </p>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Animeography for Desktop */}
           {data.anime.length > 0 && (
@@ -67,7 +69,7 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
               <div className="flex flex-col gap-2">
                 {data.anime.map((data: any, i: number) => {
                   return (
-                    <Link href={`/animeinfo/${data.anime.mal_id}`}>
+                    <Link href={`/animeinfo/${data.anime.mal_id}`} key={i}>
                       <div className="flex rounded overflow-hidden cursor-pointer bg-[#1C2024] hover:bg-[#212529]">
                         <Image
                           src={data.anime.images.jpg.image_url}
@@ -93,7 +95,6 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
         <div className=" gap-1 items-center mb-1 md:mb-3 hidden md:flex flex-wrap">
           <h1 className="text-white text-xl md:text-3xl font-semibold ">
             {data.name != null && data.name}{" "}
-            {/* {data.name_kanji != null && `(${data.name_kanji})`} */}
           </h1>
           <p className="text-white text-xl">
             {data.name_kanji != null && `(${data.name_kanji})`}
