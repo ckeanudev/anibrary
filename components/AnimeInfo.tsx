@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import FirstAnimeInfo from "./FirstAnimeInfo";
 import SecondAnimeInfo from "./SecondAnimeInfo";
 import ThirdAnimeInfo from "./ThirdAnimeInfo";
-import { Skeleton } from "./ui/skeleton";
+import { TbLoader3 } from "react-icons/tb";
 
 interface AnimeInfoProps {
   animeInfoId: any;
@@ -60,25 +60,12 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
     <>
       <div className="max-w-[1200px] min-h-screen mx-auto pb-10">
         {/* --------- Loader --------- */}
-        {loadingAnimeInfoFull && (
-          <div className="flex flex-col md:flex-row p-3 md:p-5 gap-5 min-h-screen mb-20">
-            <div className="in-w-full h-[105px] md:h-0 md:min-w-[240px] relative ">
-              <Skeleton className="bg-[#25A18E] w-[150px] h-[200px] md:h-[300px] md:min-w-[220px]  drop-shadow-md rounded-lg absolute top-[-100px] left-[50%] translate-x-[-50%]" />
-            </div>
-            <div className="flex-1">
-              <Skeleton className="w-full h-7 bg-[#25A18E] mb-2 md:mb-4" />
 
-              <div>
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-                <Skeleton className="w-full h-3 bg-[#25A18E] mb-2" />
-              </div>
-            </div>
+        {loadingAnimeInfoFull && (
+          <div className="flex items-center justify-center w-full pt-16">
+            <p className="flex animate-spin text-[#25A18E]">
+              <TbLoader3 className="flex" size={60} />
+            </p>
           </div>
         )}
 
@@ -103,7 +90,6 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
         )}
 
         {/* --------- Anime Info Third Recommendations --------- */}
-
         {successAnimeRecommendations && (
           <ThirdAnimeInfo
             loading={loadingAnimeRecommendations}
