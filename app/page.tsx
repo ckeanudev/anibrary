@@ -25,7 +25,7 @@ export default function Home() {
         <p
           className="text-[10px] md:text-xs xl:text-sm text-[#fff] mt-3 md:mt-8 xl:mt-12 text-center drop-shadow-lg"
           style={{ letterSpacing: "0.05em" }}>
-          Developed & Designed by Ckeanu powered by Jikan API
+          Developed & Designed by Ckeanu | Powered by Jikan API
         </p>
       </section>
 
