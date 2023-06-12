@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FC } from "react";
 import { FaMedal, FaStar, FaHeart } from "react-icons/fa";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Link from "next/link";
 
 interface FirstAnimeInfoProps {
   loadingAnime: boolean;
@@ -196,31 +197,33 @@ const SecondAnimeInfo: FC<FirstAnimeInfoProps> = ({
         </h1>
 
         <ScrollArea className="rounded-md max-h-[540px] md:max-h-[600px] flex-1 mb-10">
-          {/* Charactars Card */}
+          {/* Charactars Card Container */}
           {!loadingCharacters && (
             <div className="p-0 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3">
               {dataCharacters.map((data: any) => {
                 return (
-                  <div
-                    className="bg-[#1C2024] md:hover:bg-[#212529] overflow-hidden rounded-md flex flex-col h-full cursor-pointer"
-                    key={data.character.mal_id}>
-                    <div className="relative flex">
-                      <Image
-                        src={data.character.images.jpg.image_url}
-                        alt="Anime Character IMG"
-                        width={115}
-                        height={230}
-                        className="h-auto w-full"
-                        draggable={false}
-                      />
-                    </div>
+                  <Link href={`/character/${data.character.mal_id}`}>
+                    <div
+                      className="bg-[#1C2024] md:hover:bg-[#212529] overflow-hidden rounded-md flex flex-col h-full cursor-pointer"
+                      key={data.character.mal_id}>
+                      <div className="relative flex">
+                        <Image
+                          src={data.character.images.jpg.image_url}
+                          alt="Anime Character IMG"
+                          width={115}
+                          height={230}
+                          className="h-auto w-full"
+                          draggable={false}
+                        />
+                      </div>
 
-                    <div className="p-2">
-                      <h3 className="text-white font-medium text-sm">
-                        {data.character.name}
-                      </h3>
+                      <div className="p-2">
+                        <h3 className="text-white font-medium text-sm">
+                          {data.character.name}
+                        </h3>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
