@@ -18,6 +18,7 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
             alt="Character Image"
             width={200}
             height={320}
+            priority
             className="rounded-lg mx-auto w-[150px] md:min-w-[180px] drop-shadow-md mb-4"
           />
 
@@ -73,11 +74,12 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
                       <div className="flex rounded overflow-hidden cursor-pointer bg-[#1C2024] hover:bg-[#212529]">
                         <Image
                           src={data.anime.images.jpg.image_url}
-                          width={50}
-                          height={80}
+                          width={60}
+                          height={100}
                           alt="anime Img"
+                          className="w-auto h-auto"
                         />
-                        <div className="flex-1  p-2 ">
+                        <div className="flex-1 p-2">
                           <p className="text-white text-xs">
                             {data.anime.title != null && data.anime.title}
                           </p>
