@@ -36,6 +36,11 @@ const CollectionNavbar = () => {
             </p>
           </div>
 
+          <div className="block lg:hidden">
+            <Navlinks href="/" setShowMenu={setShowMenu}>
+              Home
+            </Navlinks>
+          </div>
           <Navlinks href="/newseasons" setShowMenu={setShowMenu}>
             New Season
           </Navlinks>

@@ -33,7 +33,7 @@ const CharacterInfo: FC<CharacterInfoProps> = ({ characterInfoId }) => {
         {/* --------- Loader --------- */}
 
         {loadingCharacterInfoFull && (
-          <div className="flex items-center justify-center w-full pt-16">
+          <div className="flex items-center justify-center w-full pt-[180px]">
             <p className="flex animate-spin text-[#25A18E]">
               <TbLoader3 className="flex" size={60} />
             </p>
