@@ -46,10 +46,8 @@ const CollectionTopCharacter = () => {
             {dataAnime?.pages?.map((page: any, i: number) => {
               return page?.data?.data.map((data: any, i: number) => {
                 return (
-                  <Link href={`/character/${data.mal_id}`}>
-                    <div
-                      key={i}
-                      className="flex flex-col bg-[#1C2024] hover:bg-[#212529] rounded-lg overflow-hidden h-full cursor-pointer">
+                  <Link href={`/character/${data.mal_id}`} key={i}>
+                    <div className="flex flex-col bg-[#1C2024] hover:bg-[#212529] rounded-lg overflow-hidden h-full cursor-pointer">
                       <div className="flex relative">
                         <Image
                           src={data.images.jpg.image_url}
