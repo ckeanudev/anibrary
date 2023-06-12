@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useInfiniteQuery } from "react-query";
 import AnimeCard from "./AnimeCard";
+import { TbLoader3 } from "react-icons/tb";
 
 const fetchSeasonNow: any = ({ pageParam = 1 }) => {
   return axios.get(`https://api.jikan.moe/v4/seasons/now?page=${pageParam}`);
@@ -52,7 +53,13 @@ const CollectionSeasonNow = () => {
       )}
 
       <div className="w-full flex items-center justify-center mt-10">
-        {isFetching && <p className="text-white font-semibold">Loading...</p>}
+        {isFetching && (
+          <div className="flex items-center justify-center w-full pt-8">
+            <p className="flex animate-spin text-[#25A18E]">
+              <TbLoader3 className="flex" size={60} />
+            </p>
+          </div>
+        )}
 
         {!isFetching && (
           <button

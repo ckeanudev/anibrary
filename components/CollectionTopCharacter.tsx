@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useInfiniteQuery } from "react-query";
 import { FaHeart } from "react-icons/fa";
 import Link from "next/link";
+import { TbLoader3 } from "react-icons/tb";
 
 const fetchTopCharacter: any = ({ pageParam = 1 }) => {
   return axios.get(`https://api.jikan.moe/v4/top/characters?page=${pageParam}`);
@@ -78,7 +79,13 @@ const CollectionTopCharacter = () => {
       )}
 
       <div className="w-full flex items-center justify-center mt-10">
-        {isFetching && <p className="text-white font-semibold">Loading...</p>}
+        {isFetching && (
+          <div className="flex items-center justify-center w-full pt-8">
+            <p className="flex animate-spin text-[#25A18E]">
+              <TbLoader3 className="flex" size={60} />
+            </p>
+          </div>
+        )}
 
         {!isFetching && (
           <button
