@@ -9,6 +9,7 @@ import Link from "next/link";
 type MainAnimeProps = {
   title: string;
   loading: boolean;
+  success: boolean;
   data: any;
   link: string;
 };
@@ -16,6 +17,7 @@ type MainAnimeProps = {
 const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
   title,
   loading,
+  success,
   data,
   link,
 }) => {
@@ -23,8 +25,12 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
   const slider = useRef<any>(null);
 
   useEffect(() => {
-    setWidthSlider(slider?.current?.scrollWidth - slider?.current?.offsetWidth);
-  }, [loading]);
+    setTimeout(() => {
+      setWidthSlider(
+        slider?.current?.scrollWidth - slider?.current?.offsetWidth
+      );
+    }, 500);
+  }, [success]);
 
   return (
     <div className="mb-5 w-full">
@@ -51,7 +57,7 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
           whileTap={{ cursor: "grabbing" }}
           dragConstraints={{ right: 0, left: -widthSlider }}
           className="px-3 py-1 flex gap-3">
-          {loading &&
+          {!success &&
             tempLoading.map((data: number) => {
               return (
                 <div key={data} className="bg-[#1C2024]">
@@ -69,7 +75,7 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
             })}
 
           {/* ------- Anime Card ------- */}
-          {!loading &&
+          {success &&
             data?.data?.data?.map((data: any, i: number) => {
               return (
                 <AnimeCard
