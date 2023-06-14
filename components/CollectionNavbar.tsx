@@ -41,6 +41,9 @@ const CollectionNavbar = () => {
               Home
             </Navlinks>
           </div>
+          <Navlinks href="/collection" setShowMenu={setShowMenu}>
+            Collection
+          </Navlinks>
           <Navlinks href="/newseasons" setShowMenu={setShowMenu}>
             New Season
           </Navlinks>
