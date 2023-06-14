@@ -35,6 +35,19 @@ const CollectionMain = () => {
     },
   });
 
+  const {
+    isLoading: loadingAnimeFiltered,
+    isFetching: fetchingAnimeFiltered,
+    isSuccess: successAnimeFiltered,
+    data: animeData,
+    fetchNextPage: fecthNextAnime,
+    refetch: refetchAnime,
+  } = useInfiniteQuery(`animeFiltered`, fetchAnimeFiltered, {
+    onError: (e) => {
+      console.log(e);
+    },
+  });
+
   return (
     <div className="relative">
       <div className="flex flex-col w-full min-h-[2000px] pt-16 px-2 pb-10">
@@ -44,9 +57,9 @@ const CollectionMain = () => {
         </div>
 
         {successGenres && (
-          <div className="flex flex-1 ">
+          <div className="flex flex-1">
             {/* --------------- Filtering Command --------------- */}
-            <div className=" min-w-[300px] max-w-[300px] ">
+            <div className=" min-w-[360px] max-w-[360px] ">
               <FilteringCommand
                 genres={genres}
                 setGenres={setGenres}
@@ -55,7 +68,24 @@ const CollectionMain = () => {
             </div>
 
             {/* --------------- Anime --------------- */}
-            <div className="grid grid-cols-5"></div>
+            {successGenres && successAnimeFiltered && (
+              //   <div className="flex-1 px-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+              <div className="flex-1 px-3 flex flex-wrap justify-center gap-4">
+                {animeData.pages.map((page: any, i: number) => {
+                  return page?.data?.data.map((data: any, j: number) => {
+                    return (
+                      <AnimeCard
+                        data={data}
+                        titleCount={45}
+                        infoCount={490}
+                        isCollection={true}
+                        key={j}
+                      />
+                    );
+                  });
+                })}
+              </div>
+            )}
           </div>
         )}
       </div>

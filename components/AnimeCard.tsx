@@ -8,12 +8,14 @@ type AnimeCardProps = {
   data: any;
   titleCount: number;
   infoCount: number;
+  isCollection: boolean;
 };
 
 const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
   data,
   titleCount,
   infoCount,
+  isCollection,
 }) => {
   const [hoverInfo, setHoverInfo] = useState(false);
 
@@ -28,7 +30,9 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
 
   return (
     <div
-      className="relative bg-[#1C2024] min-w-[200px] flex flex-col overflow-hidden rounded-md"
+      className={`relative bg-[#1C2024] min-w-[200px] ${
+        isCollection && `max-w-[220px]`
+      } flex flex-col overflow-hidden rounded-md`}
       onMouseEnter={() => {
         setHoverInfo(true);
       }}
