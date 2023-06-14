@@ -43,9 +43,10 @@ const frameworks = [
 
 interface ComboboxDemoProps {
   filter: any;
+  data: any;
 }
 
-export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({ filter }) => {
+export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({ filter, data }) => {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
@@ -56,21 +57,21 @@ export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({ filter }) => {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[200px] justify-between text-white">
+          className="w-full justify-between text-white">
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
+            ? data.find((data: any) => data.value === value)?.label
             : "Select genre..."}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[220px] p-0">
         <Command>
           <CommandInput placeholder="Search genre..." />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {frameworks.map((framework) => (
+            {data.map((data: any) => (
               <CommandItem
-                key={framework.value}
+                key={data.value}
                 onSelect={(currentValue) => {
                   //   setValue(currentValue === value ? "" : currentValue);
 
@@ -81,10 +82,10 @@ export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({ filter }) => {
                 <Check
                   className={cn(
                     "mr-2 h-4 w-4",
-                    value === framework.value ? "opacity-100" : "opacity-0"
+                    value === data.value ? "opacity-100" : "opacity-0"
                   )}
                 />
-                {framework.label}
+                {data.label}
               </CommandItem>
             ))}
           </CommandGroup>
