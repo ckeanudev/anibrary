@@ -1,6 +1,7 @@
 "use client";
+import * as React from "react";
 import axios from "axios";
-import { useInfiniteQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 import AnimeCard from "./AnimeCard";
 import { TbLoader3 } from "react-icons/tb";
 import Footer from "./Footer";
@@ -9,7 +10,30 @@ import { ComboboxDemo } from "./CollectionComboboxDemo";
 import FilteringCommand from "./FilteringCommand";
 
 const CollectionMain = () => {
-  const [filter, setFilter] = useState([]);
+  const [genres, setGenres] = React.useState([]);
+  const [orderBy, setOrderBy] = React.useState("rank");
+  const [rating, setRating] = React.useState("g");
+
+  const fetchGenres = () => {
+    return axios.get(`https://api.jikan.moe/v4/genres/anime`);
+  };
+
+  const fetchAnimeFiltered: any = ({ pageParam = 1 }) => {
+    return axios.get(
+      `https://api.jikan.moe/v4/anime?order_by=${orderBy}&rating=${rating}&page=${pageParam}`
+    );
+  };
+
+  const {
+    isLoading: loadingGenres,
+    isFetching: fetchingGenres,
+    isSuccess: successGenres,
+    data: genreData,
+  } = useQuery(`genres`, fetchGenres, {
+    onError: (e) => {
+      console.log(e);
+    },
+  });
 
   return (
     <div className="relative">
@@ -19,15 +43,21 @@ const CollectionMain = () => {
           <h1 className="text-2xl font-semibold text-white">Collection</h1>
         </div>
 
-        <div className="flex flex-1 ">
-          {/* --------------- Filtering Command --------------- */}
-          <div className=" min-w-[300px] max-w-[300px] ">
-            <FilteringCommand />
-          </div>
+        {successGenres && (
+          <div className="flex flex-1 ">
+            {/* --------------- Filtering Command --------------- */}
+            <div className=" min-w-[300px] max-w-[300px] ">
+              <FilteringCommand
+                genres={genres}
+                setGenres={setGenres}
+                genresData={genreData}
+              />
+            </div>
 
-          {/* --------------- Anime --------------- */}
-          <div className="grid grid-cols-5"></div>
-        </div>
+            {/* --------------- Anime --------------- */}
+            <div className="grid grid-cols-5"></div>
+          </div>
+        )}
       </div>
       <Footer />
     </div>

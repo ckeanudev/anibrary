@@ -17,6 +17,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ScrollArea } from "./ui/scroll-area";
 
 const frameworks = [
   {
@@ -42,13 +43,27 @@ const frameworks = [
 ];
 
 interface ComboboxDemoProps {
-  filter: any;
+  genres: any;
+  setGenres: any;
   data: any;
 }
 
-export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({ filter, data }) => {
+export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({
+  genres,
+  setGenres,
+  data,
+}) => {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+
+  const filterGenre = () => {
+    data = data.filter(function (cv: any) {
+      return !genres.find(function (e: any) {
+        return e.mal_id == cv.mal_id;
+      });
+    });
+
+    console.log(data);
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -58,37 +73,36 @@ export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({ filter, data }) => {
           role="combobox"
           aria-expanded={open}
           className="w-full justify-between text-white">
-          {value
-            ? data.find((data: any) => data.value === value)?.label
-            : "Select genre..."}
+          {"Select Genre"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[220px] p-0">
+      <PopoverContent className="w-[220px  p-0">
         <Command>
           <CommandInput placeholder="Search genre..." />
           <CommandEmpty>No framework found.</CommandEmpty>
-          <CommandGroup>
-            {data.map((data: any) => (
-              <CommandItem
-                key={data.value}
-                onSelect={(currentValue) => {
-                  //   setValue(currentValue === value ? "" : currentValue);
-
-                  filter((oldArray: any) => [...oldArray, currentValue]);
-
-                  setOpen(false);
-                }}>
-                <Check
-                  className={cn(
-                    "mr-2 h-4 w-4",
-                    value === data.value ? "opacity-100" : "opacity-0"
-                  )}
-                />
-                {data.label}
-              </CommandItem>
-            ))}
-          </CommandGroup>
+          <ScrollArea className="h-[500px]">
+            <CommandGroup>
+              {
+                (data = data
+                  .filter(function (cv: any) {
+                    return !genres.find(function (e: any) {
+                      return e.mal_id == cv.mal_id;
+                    });
+                  })
+                  .map((data: any) => (
+                    <CommandItem
+                      key={data.mal_id}
+                      onSelect={(currentValue) => {
+                        setGenres((oldArray: any) => [...oldArray, data]);
+                        setOpen(false);
+                      }}>
+                      {data.name}
+                    </CommandItem>
+                  )))
+              }
+            </CommandGroup>
+          </ScrollArea>
         </Command>
       </PopoverContent>
     </Popover>

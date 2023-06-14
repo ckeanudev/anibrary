@@ -1,3 +1,4 @@
+"use client";
 import { Label } from "@radix-ui/react-label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { FC } from "react";
