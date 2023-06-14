@@ -16,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <QueryClientProvider client={queryClient}>
-        <body className={montserrat.className}>
+        <body
+          className={montserrat.className}
+          style={{ scrollBehavior: "smooth" }}>
           <CollectionNavbar />
 
           {children}
