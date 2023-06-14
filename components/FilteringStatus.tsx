@@ -21,7 +21,7 @@ const FilteringStatus: FC<FilteringStatusProps> = ({ status, setStatus }) => {
           value="airing"
           id="airing"
         />
-        <Label htmlFor="airing" className="text-white text-sm">
+        <Label htmlFor="airing" className="text-[#CED4DA] text-sm">
           Airing
         </Label>
       </div>
@@ -31,7 +31,7 @@ const FilteringStatus: FC<FilteringStatusProps> = ({ status, setStatus }) => {
           value="complete"
           id="complete"
         />
-        <Label htmlFor="complete" className="text-white text-sm">
+        <Label htmlFor="complete" className="text-[#CED4DA] text-sm">
           Complete
         </Label>
       </div>
@@ -41,7 +41,7 @@ const FilteringStatus: FC<FilteringStatusProps> = ({ status, setStatus }) => {
           value="upcoming"
           id="upcoming"
         />
-        <Label htmlFor="upcoming" className="text-white text-sm">
+        <Label htmlFor="upcoming" className="text-[#CED4DA] text-sm">
           Upcoming
         </Label>
       </div>

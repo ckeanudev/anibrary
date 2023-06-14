@@ -22,7 +22,7 @@ const FilteringRating: FC<FilteringRatingProps> = ({ rating, setRating }) => {
           value="g"
           id="g"
         />
-        <Label htmlFor="g" className="text-white text-sm">
+        <Label htmlFor="g" className="text-[#CED4DA] text-sm">
           G - All Ages
         </Label>
       </div>
@@ -32,7 +32,7 @@ const FilteringRating: FC<FilteringRatingProps> = ({ rating, setRating }) => {
           value="pg"
           id="pg"
         />
-        <Label htmlFor="pg" className="text-white text-sm">
+        <Label htmlFor="pg" className="text-[#CED4DA] text-sm">
           PG - Children
         </Label>
       </div>
@@ -42,7 +42,7 @@ const FilteringRating: FC<FilteringRatingProps> = ({ rating, setRating }) => {
           value="pg13"
           id="pg13"
         />
-        <Label htmlFor="pg13" className="text-white text-sm">
+        <Label htmlFor="pg13" className="text-[#CED4DA] text-sm">
           PG-13 - Teens 13 or older
         </Label>
       </div>
@@ -52,7 +52,7 @@ const FilteringRating: FC<FilteringRatingProps> = ({ rating, setRating }) => {
           value="r17"
           id="r17"
         />
-        <Label htmlFor="r17" className="text-white text-sm">
+        <Label htmlFor="r17" className="text-[#CED4DA] text-sm">
           R - 17+ (violence & profanity)
         </Label>
       </div>
@@ -62,7 +62,7 @@ const FilteringRating: FC<FilteringRatingProps> = ({ rating, setRating }) => {
           value="r"
           id="r"
         />
-        <Label htmlFor="r" className="text-white text-sm">
+        <Label htmlFor="r" className="text-[#CED4DA] text-sm">
           R+ - Mild Nudity
         </Label>
       </div>
@@ -72,7 +72,7 @@ const FilteringRating: FC<FilteringRatingProps> = ({ rating, setRating }) => {
           value="rx"
           id="rx"
         />
-        <Label htmlFor="rx" className="text-white text-sm">
+        <Label htmlFor="rx" className="text-[#CED4DA] text-sm">
           Rx - Hentai
         </Label>
       </div>

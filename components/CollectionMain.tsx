@@ -43,6 +43,14 @@ const CollectionMain = () => {
     fetchNextPage: fecthNextAnime,
     refetch: refetchAnime,
   } = useInfiniteQuery(`animeFiltered`, fetchAnimeFiltered, {
+    getNextPageParam: (lastPage: any, pages: any) => {
+      const nextPage = pages[pages.length - 1];
+      if (nextPage.data.length === 0) {
+        return undefined;
+      } else {
+        return pages.length + 1;
+      }
+    },
     onError: (e) => {
       console.log(e);
     },
@@ -69,21 +77,42 @@ const CollectionMain = () => {
 
             {/* --------------- Anime --------------- */}
             {successGenres && successAnimeFiltered && (
-              //   <div className="flex-1 px-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-              <div className="flex-1 px-3 flex flex-wrap justify-center gap-4">
-                {animeData.pages.map((page: any, i: number) => {
-                  return page?.data?.data.map((data: any, j: number) => {
-                    return (
-                      <AnimeCard
-                        data={data}
-                        titleCount={45}
-                        infoCount={490}
-                        isCollection={true}
-                        key={j}
-                      />
-                    );
-                  });
-                })}
+              <div className="flex-1">
+                <div className="flex flex-wrap justify-center items-start gap-4">
+                  {animeData.pages.map((page: any, i: number) => {
+                    return page?.data?.data.map((data: any, j: number) => {
+                      return (
+                        <AnimeCard
+                          data={data}
+                          titleCount={45}
+                          infoCount={490}
+                          isCollection={true}
+                          key={j}
+                        />
+                      );
+                    });
+                  })}
+                </div>
+
+                <div className="w-full flex items-center justify-center mt-10">
+                  {fetchingAnimeFiltered && (
+                    <div className="flex items-center justify-center w-full pt-8">
+                      <p className="flex animate-spin text-[#25A18E]">
+                        <TbLoader3 className="flex" size={60} />
+                      </p>
+                    </div>
+                  )}
+
+                  {!fetchingAnimeFiltered && (
+                    <button
+                      onClick={() => {
+                        fecthNextAnime();
+                      }}
+                      className="text-white text-sm bg-[#212529] hover:bg-[#343A40] py-1 px-2 rounded cursor-pointer">
+                      Load More
+                    </button>
+                  )}
+                </div>
               </div>
             )}
           </div>

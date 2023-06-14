@@ -14,29 +14,6 @@ interface FilteringCommandProps {
   genresData: any;
 }
 
-const genreData = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-];
-
 const FilteringCommand: React.FC<FilteringCommandProps> = ({
   genres,
   setGenres,
@@ -48,7 +25,7 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
   const [status, setStatus] = React.useState("airing");
 
   return (
-    <div className="sticky top-[60px] py-2 px-3.5 bg-[#101314] rounded-md w-full">
+    <div className="py-2 px-3.5 bg-[#101314] rounded-md w-full">
       {/* -------------- Genres -------------- */}
       <div className="mb-1 border-b-[1px] border-[#343A40] pb-3">
         <h2 className="text-white text-lg font-semibold mb-1">Genres</h2>

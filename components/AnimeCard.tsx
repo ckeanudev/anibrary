@@ -31,7 +31,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
   return (
     <div
       className={`relative bg-[#1C2024] min-w-[200px] ${
-        isCollection && `max-w-[220px]`
+        isCollection && `max-w-[240px] min-h-[460px]`
       } flex flex-col overflow-hidden rounded-md`}
       onMouseEnter={() => {
         setHoverInfo(true);

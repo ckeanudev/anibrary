@@ -21,7 +21,7 @@ const FilteringOrderBy: FC<FilteringOrderByProps> = ({ order, setOrder }) => {
           value="rank"
           id="rank"
         />
-        <Label htmlFor="rank" className="text-white text-sm">
+        <Label htmlFor="rank" className="text-[#CED4DA] text-sm">
           Rank
         </Label>
       </div>
@@ -31,7 +31,7 @@ const FilteringOrderBy: FC<FilteringOrderByProps> = ({ order, setOrder }) => {
           value="score"
           id="score"
         />
-        <Label htmlFor="score" className="text-white text-sm">
+        <Label htmlFor="score" className="text-[#CED4DA]  text-sm">
           Score
         </Label>
       </div>
@@ -41,7 +41,7 @@ const FilteringOrderBy: FC<FilteringOrderByProps> = ({ order, setOrder }) => {
           value="title"
           id="title"
         />
-        <Label htmlFor="title" className="text-white text-sm">
+        <Label htmlFor="title" className="text-[#CED4DA]  text-sm">
           Title
         </Label>
       </div>
@@ -51,7 +51,7 @@ const FilteringOrderBy: FC<FilteringOrderByProps> = ({ order, setOrder }) => {
           value="type"
           id="type"
         />
-        <Label htmlFor="type" className="text-white text-sm">
+        <Label htmlFor="type" className="text-[#CED4DA]  text-sm">
           Type
         </Label>
       </div>
@@ -61,7 +61,7 @@ const FilteringOrderBy: FC<FilteringOrderByProps> = ({ order, setOrder }) => {
           value="rating"
           id="rating"
         />
-        <Label htmlFor="rating" className="text-white text-sm">
+        <Label htmlFor="rating" className="text-[#CED4DA]  text-sm">
           Rating
         </Label>
       </div>
