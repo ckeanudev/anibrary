@@ -23,7 +23,11 @@ const CharacterInfo: FC<CharacterInfoProps> = ({ characterInfoId }) => {
     data: dataCharacterInfoFull,
   } = useQuery(`characterInfo`, fetchCharacterInfo, {
     onError: (err) => {
+      console.log(`Oops! something went wrong`);
       console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
 

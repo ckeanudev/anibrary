@@ -20,7 +20,11 @@ const MainHolder = () => {
     data: dataSeasonNow,
   } = useQuery(`seasonNow`, fetchSeasonNow, {
     onError: (err) => {
+      console.log(`Oops! something went wrong`);
       console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
   const {
@@ -29,7 +33,11 @@ const MainHolder = () => {
     data: dataTopAnime,
   } = useQuery(`topAnime`, fetchTopAnime, {
     onError: (err) => {
+      console.log(`Oops! something went wrong`);
       console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
   const {
@@ -38,7 +46,11 @@ const MainHolder = () => {
     data: dataTopUpcoming,
   } = useQuery(`topUpcoming`, fetchTopUpcoming, {
     onError: (err) => {
+      console.log(`Oops! something went wrong`);
       console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
 

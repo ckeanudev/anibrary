@@ -27,8 +27,12 @@ const CollectionMain = () => {
     isSuccess: successGenres,
     data: genreData,
   } = useQuery(`genres`, fetchGenres, {
-    onError: (e) => {
-      console.log(e);
+    onError: (err) => {
+      console.log(`Oops! something went wrong`);
+      console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
 

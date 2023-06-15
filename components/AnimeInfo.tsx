@@ -33,7 +33,11 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
     data: dataAnimeInfoFull,
   } = useQuery(`animeInfoFull`, fetchAnimeInfo, {
     onError: (err) => {
+      console.log(`Oops! something went wrong`);
       console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
 
@@ -43,7 +47,11 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
     data: dataAnimeCaracters,
   } = useQuery(`animeCharacters`, fetchAnimeCharacters, {
     onError: (err) => {
+      console.log(`Oops! something went wrong`);
       console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
 
@@ -53,7 +61,11 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
     data: dataAnimeRecommendations,
   } = useQuery(`animeRecommendations`, fetchAnimeRecommendations, {
     onError: (err) => {
+      console.log(`Oops! something went wrong`);
       console.log(err);
+    },
+    onSuccess: (res) => {
+      console.log(`Data fetched successfully`);
     },
   });
 

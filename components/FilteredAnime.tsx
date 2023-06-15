@@ -77,10 +77,11 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
     },
 
     onError: (e) => {
+      console.log(`Oops! something went wrong`);
       console.log(e);
     },
     onSuccess: (res) => {
-      console.log(res.pages[0].data.pagination);
+      console.log(`Data fetched successfully`);
       // console.log(res.pages[0].data.data);
     },
   });
