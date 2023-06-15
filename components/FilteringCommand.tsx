@@ -23,6 +23,8 @@ interface FilteringCommandProps {
   setRating: any;
   status: any;
   setStatus: any;
+
+  showFilter: any;
 }
 
 const FilteringCommand: React.FC<FilteringCommandProps> = ({
@@ -35,6 +37,7 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
   setRating,
   status,
   setStatus,
+  showFilter,
 }) => {
   return (
     <div className="py-3 px-3.5 bg-[#101314] rounded-md w-full">
@@ -146,7 +149,11 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
         {/* <FilteringRating rating={rating} setRating={setRating} /> */}
       </div>
 
-      <button className="w-full text-white bg-[#25A18E] p-2 mt-3 rounded">
+      <button
+        onClick={() => {
+          showFilter((prev: boolean) => !prev);
+        }}
+        className="w-full text-white bg-[#25A18E] p-2 mt-3 rounded">
         Search
       </button>
     </div>

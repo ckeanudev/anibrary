@@ -80,6 +80,7 @@ const CollectionMain = () => {
                   setRating={setRating}
                   status={status}
                   setStatus={setStatus}
+                  showFilter={setShowFilter}
                 />
               </div>
             )}
