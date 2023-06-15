@@ -82,6 +82,7 @@ const MainAnime: React.FunctionComponent<MainAnimeProps> = ({
                   data={data}
                   titleCount={31}
                   infoCount={300}
+                  isCollection={false}
                   key={i}
                 />
               );
