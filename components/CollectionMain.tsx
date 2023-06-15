@@ -7,6 +7,7 @@ import { CgOptions } from "react-icons/cg";
 import Footer from "./Footer";
 import FilteringCommand from "./FilteringCommand";
 import FilteredAnime from "./FilteredAnime";
+import { TbLoader3 } from "react-icons/tb";
 
 const CollectionMain = () => {
   const [showFilter, setShowFilter] = React.useState(true);
@@ -55,6 +56,14 @@ const CollectionMain = () => {
             <CgOptions size={24} />
           </p>
         </div>
+
+        {fetchingGenres && (
+          <div className="flex items-center justify-center w-full pt-8">
+            <p className="flex animate-spin text-[#25A18E]">
+              <TbLoader3 className="flex" size={60} />
+            </p>
+          </div>
+        )}
 
         {successGenres && (
           <div className="flex flex-1">
