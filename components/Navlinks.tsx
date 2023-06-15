@@ -19,10 +19,10 @@ const Navlinks: FC<NavlinksProps> = ({ href, setShowMenu, children }) => {
         onClick={() => {
           setShowMenu(false);
         }}
-        className={`py-1.5 px-2.5 mb-3 lg:mb-0 mr-0 lg:mr-1 text-lg lg:text-base ${
+        className={`py-1.5 px-2.5  mb-3 lg:mb-0 mr-0 lg:mr-1 text-lg lg:text-base ${
           active
             ? `bg-[#25A18E] text-white font-medium`
-            : `text-[#DEE2E6] bg-transparent hover:bg-white/10`
+            : `text-[#DEE2E6] bg-[#212529] lg:bg-transparent lg:hover:bg-white/10`
         }  rounded-md cursor-pointer text-center`}>
         {children}
       </p>
