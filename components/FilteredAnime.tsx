@@ -30,7 +30,11 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
 }) => {
   const fetchAnimeFiltered: any = ({ pageParam = 1 }) => {
     console.log(
-      `https://api.jikan.moe/v4/anime?page=${pageParam}&order_by=${orderBy}&status=${status}&rating=${rating}${
+      `https://api.jikan.moe/v4/anime?page=${pageParam}${
+        orderBy != "all" && `&order_by=${orderBy}`
+      }${status != "all" && `&status=${status}`}${
+        rating != "all" && `&rating=${rating}`
+      }${
         genres.length > 0
           ? `&genres=${genres.map((data: any, i: number) => {
               return data.mal_id;
@@ -40,7 +44,11 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
     );
 
     return axios.get(
-      `https://api.jikan.moe/v4/anime?page=${pageParam}&order_by=${orderBy}&status=${status}&rating=${rating}${
+      `https://api.jikan.moe/v4/anime?page=${pageParam}${
+        orderBy !== "all" ? `&order_by=${orderBy}` : ""
+      }${status !== "all" ? `&status=${status}` : ``}${
+        rating !== "all" ? `&rating=${rating}` : ``
+      }${
         genres.length > 0
           ? `&genres=${genres.map((data: any, i: number) => {
               return data.mal_id;
@@ -71,6 +79,10 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
     onError: (e) => {
       console.log(e);
     },
+    onSuccess: (res) => {
+      console.log(res.pages[0].data.pagination);
+      // console.log(res.pages[0].data.data);
+    },
   });
 
   return (
@@ -100,15 +112,25 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
           </div>
         )}
 
-        {!fetchingAnimeFiltered && (
-          <button
-            onClick={() => {
-              fecthNextAnime();
-            }}
-            className="text-white text-sm bg-[#212529] hover:bg-[#343A40] py-1 px-2 rounded cursor-pointer">
-            Load More
-          </button>
-        )}
+        {animeData?.pages[0].data.data.length == 0 &&
+          !fetchingAnimeFiltered && (
+            <div className="flex items-center justify-center w-full pt-8">
+              <p className="flex text-white">No Anime Found</p>
+            </div>
+          )}
+
+        {!fetchingAnimeFiltered &&
+          animeData?.pages[0].data.data.length > 0 &&
+          animeData?.pages[0].data.pagination.current_page <
+            animeData?.pages[0].data.pagination.items.total && (
+            <button
+              onClick={() => {
+                fecthNextAnime();
+              }}
+              className="text-white text-sm bg-[#212529] hover:bg-[#343A40] py-1 px-2 rounded cursor-pointer">
+              Load More
+            </button>
+          )}
       </div>
     </>
   );

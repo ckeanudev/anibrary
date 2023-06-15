@@ -12,9 +12,9 @@ const CollectionMain = () => {
   const [showFilter, setShowFilter] = React.useState(true);
 
   const [genres, setGenres] = React.useState([]);
-  const [orderBy, setOrderBy] = React.useState("rank");
-  const [rating, setRating] = React.useState("g");
-  const [status, setStatus] = React.useState("airing");
+  const [orderBy, setOrderBy] = React.useState("all");
+  const [rating, setRating] = React.useState("all");
+  const [status, setStatus] = React.useState("all");
 
   const fetchGenres = () => {
     return axios.get(`https://api.jikan.moe/v4/genres/anime`);

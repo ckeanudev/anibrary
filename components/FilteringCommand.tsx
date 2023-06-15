@@ -83,6 +83,7 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
             <SelectValue placeholder="Theme" />
           </SelectTrigger>
           <SelectContent>
+            <SelectItem value="all">All</SelectItem>
             <SelectItem value="rank">Rank</SelectItem>
             <SelectItem value="score">Score</SelectItem>
             <SelectItem value="title">Title</SelectItem>
@@ -108,6 +109,7 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
             <SelectValue placeholder="Theme" />
           </SelectTrigger>
           <SelectContent>
+            <SelectItem value="all">All</SelectItem>
             <SelectItem value="airing">Airing</SelectItem>
             <SelectItem value="complete">Complete</SelectItem>
             <SelectItem value="upcoming">Upcoming</SelectItem>
@@ -131,6 +133,7 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
             <SelectValue placeholder="Theme" />
           </SelectTrigger>
           <SelectContent>
+            <SelectItem value="all">All</SelectItem>
             <SelectItem value="g">G - All Ages</SelectItem>
             <SelectItem value="pg">PG - Children</SelectItem>
             <SelectItem value="pg13">PG-13 - Teens 13 or older</SelectItem>
