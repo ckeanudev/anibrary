@@ -1,12 +1,14 @@
-"use client";
 import CollectionNavbar from "@/components/CollectionNavbar";
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { QueryClient, QueryClientProvider } from "react-query";
-
-const queryClient = new QueryClient();
+import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
+
+export const metadata = {
+  title: "AniBrary",
+  description: "A website containing collections of anime",
+};
 
 export default function RootLayout({
   children,
@@ -14,16 +16,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <QueryClientProvider client={queryClient}>
-        <body
-          className={montserrat.className}
-          style={{ scrollBehavior: "smooth" }}>
+    <ReactQueryProvider>
+      <html lang="en">
+        <body className={montserrat.className}>
           <CollectionNavbar />
 
           {children}
         </body>
-      </QueryClientProvider>
-    </html>
+      </html>
+    </ReactQueryProvider>
   );
 }

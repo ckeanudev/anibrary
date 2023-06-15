@@ -1,3 +1,4 @@
+"use client";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import Navlinks from "./Navlinks";

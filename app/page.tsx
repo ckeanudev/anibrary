@@ -1,11 +1,6 @@
 import Footer from "@/components/Footer";
 import MainHolder from "@/components/MainHolder";
 
-export const metadata = {
-  title: "AniBrary",
-  description: "A website containing collections of anime",
-};
-
 export default function Home() {
   return (
     <main className="relative bg-[#161A1D]">

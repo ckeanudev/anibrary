@@ -38,7 +38,7 @@ const CollectionSeasonNow = () => {
         </div>
 
         {isSuccess && (
-          <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 sm:gap-4 px-16 sm:px-0 pt-4 sm:pt-">
+          <div className="grid sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5 sm:gap-4 px-16 sm:px-0 pt-4 sm:pt-0">
             {dataAnime?.pages?.map((page: any, i: number) => {
               return page?.data?.data.map((data: any, i: number) => {
                 return (

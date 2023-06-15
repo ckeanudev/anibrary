@@ -2,30 +2,42 @@
 import * as React from "react";
 import { ComboboxDemo } from "./CollectionComboboxDemo";
 import { MdClose } from "react-icons/md";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import FilteringOrderBy from "./FilteringOrderBy";
 import FilteringRating from "./FilteringRating";
 import FilteringStatus from "./FilteringStatus";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface FilteringCommandProps {
   genres: any;
   setGenres: any;
   genresData: any;
+  orderBy: any;
+  setOrderBy: any;
+  rating: any;
+  setRating: any;
+  status: any;
+  setStatus: any;
 }
 
 const FilteringCommand: React.FC<FilteringCommandProps> = ({
   genres,
   setGenres,
   genresData,
+  orderBy,
+  setOrderBy,
+  rating,
+  setRating,
+  status,
+  setStatus,
 }) => {
-  //   console.log(genresData?.data.data);
-  const [orderBy, setOrderBy] = React.useState("rank");
-  const [rating, setRating] = React.useState("g");
-  const [status, setStatus] = React.useState("airing");
-
   return (
-    <div className="py-2 px-3.5 bg-[#101314] rounded-md w-full">
+    <div className="py-3 px-3.5 bg-[#101314] rounded-md w-full">
       {/* -------------- Genres -------------- */}
       <div className="mb-1 border-b-[1px] border-[#343A40] pb-3">
         <h2 className="text-white text-lg font-semibold mb-1">Genres</h2>
@@ -61,22 +73,79 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
       <div className="mb-1 border-b-[1px] border-[#343A40] pb-3">
         <h2 className="text-white text-lg font-semibold mb-1">Order By</h2>
 
-        <FilteringOrderBy order={orderBy} setOrder={setOrderBy} />
+        <Select
+          defaultValue={orderBy}
+          onValueChange={(e: any) => {
+            console.log(e);
+            setOrderBy(e);
+          }}>
+          <SelectTrigger className="w-full text-white">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="rank">Rank</SelectItem>
+            <SelectItem value="score">Score</SelectItem>
+            <SelectItem value="title">Title</SelectItem>
+            <SelectItem value="type">Type</SelectItem>
+            <SelectItem value="rating">Ratng</SelectItem>
+          </SelectContent>
+        </Select>
+
+        {/* <FilteringOrderBy order={orderBy} setOrder={setOrderBy} /> */}
       </div>
 
       {/* -------------- Status -------------- */}
       <div className="mb-1 border-b-[1px] border-[#343A40] pb-3">
         <h2 className="text-white text-lg font-semibold mb-1">Status</h2>
 
-        <FilteringStatus status={status} setStatus={setStatus} />
+        <Select
+          defaultValue={status}
+          onValueChange={(e: any) => {
+            console.log(e);
+            setStatus(e);
+          }}>
+          <SelectTrigger className="w-full text-white">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="airing">Airing</SelectItem>
+            <SelectItem value="complete">Complete</SelectItem>
+            <SelectItem value="upcoming">Upcoming</SelectItem>
+          </SelectContent>
+        </Select>
+
+        {/* <FilteringStatus status={status} setStatus={setStatus} /> */}
       </div>
 
       {/* -------------- Rating -------------- */}
       <div className="mb-1 border-b-[1px] border-[#343A40] pb-3">
         <h2 className="text-white text-lg font-semibold mb-1">Rating</h2>
 
-        <FilteringRating rating={rating} setRating={setRating} />
+        <Select
+          defaultValue={rating}
+          onValueChange={(e: any) => {
+            console.log(e);
+            setRating(e);
+          }}>
+          <SelectTrigger className="w-full text-white">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="g">G - All Ages</SelectItem>
+            <SelectItem value="pg">PG - Children</SelectItem>
+            <SelectItem value="pg13">PG-13 - Teens 13 or older</SelectItem>
+            <SelectItem value="r17">R - 17+ (violence & profanity)</SelectItem>
+            <SelectItem value="r">R+ - Mild Nudity</SelectItem>
+            <SelectItem value="rx">Rx - Hentai</SelectItem>
+          </SelectContent>
+        </Select>
+
+        {/* <FilteringRating rating={rating} setRating={setRating} /> */}
       </div>
+
+      <button className="w-full text-white bg-[#25A18E] p-2 mt-3 rounded">
+        Search
+      </button>
     </div>
   );
 };

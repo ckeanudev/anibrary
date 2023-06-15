@@ -11,11 +11,17 @@ interface FilteringOrderByProps {
 const FilteringOrderBy: FC<FilteringOrderByProps> = ({ order, setOrder }) => {
   return (
     <RadioGroup
-      defaultValue={order}
+      defaultValue={"rank"}
       onChange={(e: any) => {
+        console.log(e);
         setOrder(e.target.value);
       }}>
-      <div className="flex items-center space-x-2">
+      <div
+        className="flex items-center space-x-2"
+        onChange={() => {
+          console.log("rank");
+          setOrder("rank");
+        }}>
         <RadioGroupItem
           className="text-[#25A18E] border-white"
           value="rank"

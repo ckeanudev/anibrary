@@ -115,7 +115,7 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
               : `N/A`}
           </p>
 
-          <div className="flex gap-1 min-w-[500px]">
+          <div className="flex gap-1 min-w-[1000px]">
             {/* ------- genres ------- */}
             {data.genres.length > 0 &&
               data.genres != null &&

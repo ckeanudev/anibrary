@@ -19,29 +19,6 @@ import {
 } from "@/components/ui/popover";
 import { ScrollArea } from "./ui/scroll-area";
 
-const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-];
-
 interface ComboboxDemoProps {
   genres: any;
   setGenres: any;
@@ -55,16 +32,6 @@ export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({
 }) => {
   const [open, setOpen] = React.useState(false);
 
-  const filterGenre = () => {
-    data = data.filter(function (cv: any) {
-      return !genres.find(function (e: any) {
-        return e.mal_id == cv.mal_id;
-      });
-    });
-
-    console.log(data);
-  };
-
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
@@ -77,12 +44,12 @@ export const ComboboxDemo: React.FC<ComboboxDemoProps> = ({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[220px  p-0">
-        <Command>
+      <PopoverContent className="w-full p-0">
+        <Command className="w-full ">
           <CommandInput placeholder="Search genre..." />
           <CommandEmpty>No framework found.</CommandEmpty>
-          <ScrollArea className="h-[500px]">
-            <CommandGroup>
+          <ScrollArea className="w-full h-[500px]">
+            <CommandGroup className="w-full">
               {
                 (data = data
                   .filter(function (cv: any) {
