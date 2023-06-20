@@ -1,4 +1,4 @@
-## Welcome to my Project 
+## Welcome to AniBrary 
 
 A website containing collections of anime provided by Jikan API. This website has all the information of your favorite anime and characters whether its a drama, action, comedy, etc.
 
