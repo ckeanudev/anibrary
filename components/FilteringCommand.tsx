@@ -2,9 +2,6 @@
 import * as React from "react";
 import { ComboboxDemo } from "./CollectionComboboxDemo";
 import { MdClose } from "react-icons/md";
-import FilteringOrderBy from "./FilteringOrderBy";
-import FilteringRating from "./FilteringRating";
-import FilteringStatus from "./FilteringStatus";
 import {
   Select,
   SelectContent,
