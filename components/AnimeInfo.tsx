@@ -5,8 +5,8 @@ import { useQuery } from "react-query";
 import FirstAnimeInfo from "./FirstAnimeInfo";
 import SecondAnimeInfo from "./SecondAnimeInfo";
 import ThirdAnimeInfo from "./ThirdAnimeInfo";
-import { TbLoader3 } from "react-icons/tb";
 import Footer from "./Footer";
+import { ImSpinner9 } from "react-icons/im";
 
 interface AnimeInfoProps {
   animeInfoId: any;
@@ -75,9 +75,9 @@ const AnimeInfo: FC<AnimeInfoProps> = ({ animeInfoId }) => {
         {/* --------- Loader --------- */}
 
         {loadingAnimeInfoFull && (
-          <div className="flex items-center justify-center w-full pt-16">
+          <div className="flex items-center justify-center w-full pt-10">
             <p className="flex animate-spin text-[#25A18E]">
-              <TbLoader3 className="flex" size={60} />
+              <ImSpinner9 className="flex" size={50} />
             </p>
           </div>
         )}

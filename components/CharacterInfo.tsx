@@ -3,8 +3,8 @@ import axios from "axios";
 import { FC } from "react";
 import { useQuery } from "react-query";
 import FirstCharacterInfo from "./FirstCharacterInfo";
-import { TbLoader3 } from "react-icons/tb";
 import Footer from "./Footer";
+import { ImSpinner9 } from "react-icons/im";
 
 interface CharacterInfoProps {
   characterInfoId: any;
@@ -37,9 +37,9 @@ const CharacterInfo: FC<CharacterInfoProps> = ({ characterInfoId }) => {
         {/* --------- Loader --------- */}
 
         {loadingCharacterInfoFull && (
-          <div className="flex items-center justify-center w-full pt-[180px]">
+          <div className="flex items-center justify-center w-full pt-10">
             <p className="flex animate-spin text-[#25A18E]">
-              <TbLoader3 className="flex" size={60} />
+              <ImSpinner9 className="flex" size={50} />
             </p>
           </div>
         )}

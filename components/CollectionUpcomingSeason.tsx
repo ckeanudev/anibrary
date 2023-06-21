@@ -2,8 +2,8 @@
 import axios from "axios";
 import { useInfiniteQuery } from "react-query";
 import AnimeCard from "./AnimeCard";
-import { TbLoader3 } from "react-icons/tb";
 import Footer from "./Footer";
+import { ImSpinner9 } from "react-icons/im";
 
 const fetchUpcomingSeason: any = ({ pageParam = 1 }) => {
   return axios.get(
@@ -63,9 +63,9 @@ const CollectionUpcomingSeason = () => {
 
         <div className="w-full flex items-center justify-center mt-10">
           {isFetching && (
-            <div className="flex items-center justify-center w-full pt-8">
+            <div className="flex items-center justify-center w-full pt-10">
               <p className="flex animate-spin text-[#25A18E]">
-                <TbLoader3 className="flex" size={60} />
+                <ImSpinner9 className="flex" size={50} />
               </p>
             </div>
           )}
