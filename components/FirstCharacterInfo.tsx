@@ -93,6 +93,7 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
           )}
         </div>
       </div>
+
       <div className="flex-1">
         <div className=" gap-1 items-center mb-1 md:mb-3 hidden md:flex flex-wrap">
           <h1 className="text-white text-xl md:text-3xl font-semibold ">
@@ -108,6 +109,42 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
           style={{ whiteSpace: "pre-line" }}>
           {data.about != null && data.about}
         </p>
+
+        {/* Character's Voice Actors */}
+        <div className="pt-10 mb-5 text-white">
+          <h2 className="text-white text-lg md:text-xl font-semibold mb-3">
+            Voice Actors
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {data.voices.length > 0 &&
+              data.voices.map((data: any, i: number) => {
+                return (
+                  <div className="flex bg-[#1C2024] rounded overflow-hidden">
+                    <Image
+                      src={data.person.images.jpg.image_url}
+                      width={80}
+                      height={40}
+                      alt="Voices Image"
+                      className="min-w-[80px] min-h-[40px] object-cover object-center"
+                    />
+                    <div className="flex-1 py-2 px-3">
+                      {data.person.name != null && (
+                        <h3 className="font-semibold">
+                          {data.person.name || `N/A`}
+                        </h3>
+                      )}
+                      {data.language != null && (
+                        <p className="text-[#ADB5BD] text-sm">
+                          {data.language || `N/A`}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
 
         {/* Animeography for Mobile */}
         {data.anime.length > 0 && (
