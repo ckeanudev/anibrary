@@ -121,13 +121,15 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
               data.voices.map((data: any, i: number) => {
                 return (
                   <div className="flex bg-[#1C2024] rounded overflow-hidden">
-                    <Image
-                      src={data.person.images.jpg.image_url}
-                      width={80}
-                      height={40}
-                      alt="Voices Image"
-                      className="min-w-[80px] min-h-[40px] object-cover object-center"
-                    />
+                    {data.person.images.jpg.image_url != null && (
+                      <Image
+                        src={data.person.images.jpg.image_url}
+                        width={80}
+                        height={40}
+                        alt="Voices Image"
+                        className="min-w-[80px] min-h-[40px] object-cover object-center"
+                      />
+                    )}
                     <div className="flex-1 py-2 px-3">
                       {data.person.name != null && (
                         <h3 className="font-semibold">
