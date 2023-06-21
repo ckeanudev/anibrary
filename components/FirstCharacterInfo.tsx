@@ -120,7 +120,9 @@ const FirstCharacterInfo: FC<FirstCharacterInfoProps> = ({ loading, data }) => {
             {data.voices.length > 0 &&
               data.voices.map((data: any, i: number) => {
                 return (
-                  <div className="flex bg-[#1C2024] rounded overflow-hidden">
+                  <div
+                    className="flex bg-[#1C2024] rounded overflow-hidden"
+                    key={i}>
                     {data.person.images.jpg.image_url != null && (
                       <Image
                         src={data.person.images.jpg.image_url}
