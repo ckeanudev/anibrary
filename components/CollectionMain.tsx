@@ -1,13 +1,12 @@
 "use client";
 import * as React from "react";
 import axios from "axios";
-import { useInfiniteQuery, useQuery } from "react-query";
-import AnimeCard from "./AnimeCard";
+import { useQuery } from "react-query";
 import { CgOptions } from "react-icons/cg";
 import Footer from "./Footer";
 import FilteringCommand from "./FilteringCommand";
 import FilteredAnime from "./FilteredAnime";
-import { TbLoader3 } from "react-icons/tb";
+import { ImSpinner9 } from "react-icons/im";
 
 const CollectionMain = () => {
   const [showFilter, setShowFilter] = React.useState(true);
@@ -58,14 +57,14 @@ const CollectionMain = () => {
         </div>
 
         {fetchingGenres && (
-          <div className="flex items-center justify-center w-full pt-8">
+          <div className="flex items-center justify-center w-full pt-10">
             <p className="flex animate-spin text-[#25A18E]">
-              <TbLoader3 className="flex" size={60} />
+              <ImSpinner9 className="flex" size={50} />
             </p>
           </div>
         )}
 
-        {successGenres && (
+        {successGenres && !fetchingGenres && (
           <div className="flex flex-1">
             {/* --------------- Filtering Command --------------- */}
             {showFilter && (

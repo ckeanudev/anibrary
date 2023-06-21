@@ -1,9 +1,9 @@
 "use client";
 import { FC } from "react";
 import axios from "axios";
-import { useInfiniteQuery, useQuery } from "react-query";
+import { useInfiniteQuery } from "react-query";
 import AnimeCard from "./AnimeCard";
-import { TbLoader3 } from "react-icons/tb";
+import { ImSpinner9 } from "react-icons/im";
 
 interface FilteredAnimeProps {
   genres: any;
@@ -82,7 +82,6 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
     },
     onSuccess: (res) => {
       console.log(`Data fetched successfully`);
-      // console.log(res.pages[0].data.data);
     },
   });
 
@@ -106,9 +105,9 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
 
       <div className="w-full flex items-center justify-center mt-10">
         {fetchingAnimeFiltered && (
-          <div className="flex items-center justify-center w-full pt-8">
+          <div className="flex items-center justify-center w-full pt-10">
             <p className="flex animate-spin text-[#25A18E]">
-              <TbLoader3 className="flex" size={60} />
+              <ImSpinner9 className="flex" size={50} />
             </p>
           </div>
         )}

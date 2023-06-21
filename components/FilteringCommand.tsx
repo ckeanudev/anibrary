@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { FaSearch } from "react-icons/fa";
 
 interface FilteringCommandProps {
   genres: any;
@@ -94,8 +95,6 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
             <SelectItem value="rating">Ratng</SelectItem>
           </SelectContent>
         </Select>
-
-        {/* <FilteringOrderBy order={orderBy} setOrder={setOrderBy} /> */}
       </div>
 
       {/* -------------- Status -------------- */}
@@ -118,8 +117,6 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
             <SelectItem value="upcoming">Upcoming</SelectItem>
           </SelectContent>
         </Select>
-
-        {/* <FilteringStatus status={status} setStatus={setStatus} /> */}
       </div>
 
       {/* -------------- Rating -------------- */}
@@ -145,16 +142,15 @@ const FilteringCommand: React.FC<FilteringCommandProps> = ({
             <SelectItem value="rx">Rx - Hentai</SelectItem>
           </SelectContent>
         </Select>
-
-        {/* <FilteringRating rating={rating} setRating={setRating} /> */}
       </div>
 
       <button
         onClick={() => {
           showFilter((prev: boolean) => !prev);
         }}
-        className="w-full text-white bg-[#25A18E] p-2 mt-3 rounded">
-        Search
+        className="w-full text-white bg-[#25A18E] p-2 mt-3 rounded flex items-center justify-center gap-1.5">
+        <FaSearch size={14} />
+        Search Now
       </button>
     </div>
   );
