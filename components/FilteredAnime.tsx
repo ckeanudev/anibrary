@@ -94,7 +94,6 @@ const FilteredAnime: FC<FilteredAnimeProps> = ({
               <AnimeCard
                 data={data}
                 titleCount={45}
-                infoCount={490}
                 isCollection={false}
                 key={j}
               />
