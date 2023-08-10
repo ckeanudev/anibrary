@@ -7,14 +7,12 @@ import { FaCrown } from "react-icons/fa";
 type AnimeCardProps = {
   data: any;
   titleCount: number;
-  infoCount: number;
   isCollection: boolean;
 };
 
 const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
   data,
   titleCount,
-  infoCount,
   isCollection,
 }) => {
   const [hoverInfo, setHoverInfo] = useState(false);
@@ -164,20 +162,17 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="absolute top-0 left-0 w-full h-full bg-[#000]/90 p-3 overflow-hidden flex flex-col justify-between">
-          <div>
-            <h4 className="mb-3 text-left text-white font-semibold">
-              {data.title_english != null
-                ? data.title_english
-                : data.title != null
-                ? data.title
-                : data.title_japanese}
-            </h4>
-            <p className="text-white text-xs text-left">
-              {data.synopsis != null
-                ? truncateString(data.synopsis, infoCount, data.mal_id)
-                : ""}
-            </p>
-          </div>
+          <h4 className="mb-2 text-left text-white font-semibold">
+            {data.title_english != null
+              ? data.title_english
+              : data.title != null
+              ? data.title
+              : data.title_japanese}
+          </h4>
+
+          <p className="text-white text-xs text-left flex-1 text-ellipsis overflow-hidden mb-4">
+            {data.synopsis || ""}
+          </p>
 
           <Link
             href={`/animeinfo/${data.mal_id}`}

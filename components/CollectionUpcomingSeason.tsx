@@ -51,7 +51,6 @@ const CollectionUpcomingSeason = () => {
                   <AnimeCard
                     data={data}
                     titleCount={45}
-                    infoCount={490}
                     isCollection={false}
                     key={i}
                   />
