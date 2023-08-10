@@ -23,14 +23,14 @@ const ThirdAnimeInfo: FC<ThirdAnimeInfoProps> = ({
 
   return (
     <div className="flex flex-col py-5">
-      {success && (
+      {success && data?.length > 0 && data != null && (
         <h1 className="text-white font-semibold text-2xl mb-3 px-3">
-          Recommendations
+          Similar to this anime
         </h1>
       )}
 
-      {success && (data?.length == 0 || data == null) && (
-        <p className="text-[#CED4DA] px-3">No recommendations yet</p>
+      {success && data?.length == 0 && data == null && (
+        <p className="text-[#CED4DA] px-3">No similar yet</p>
       )}
 
       {success && data?.length > 0 && (
