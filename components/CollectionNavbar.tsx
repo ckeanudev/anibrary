@@ -67,13 +67,6 @@ const CollectionNavbar = () => {
         }}>
         <BiMenuAltRight size={32} className="text-white" />
       </p>
-
-      {/* <div className="hidden lg:block">
-        <Input
-          className="w-[280px] bg-[#F8F9FA]"
-          placeholder="Search your favorite anime"
-        />
-      </div> */}
     </nav>
   );
 };
