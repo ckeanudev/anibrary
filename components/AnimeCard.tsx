@@ -42,11 +42,12 @@ const AnimeCard: React.FunctionComponent<AnimeCardProps> = ({
         <Image
           src={data.images.jpg.large_image_url}
           alt="animePic"
+          blurDataURL={data.images.jpg.large_image_url}
+          placeholder="blur"
           width={221}
           height={313}
           className="w-full h-[340px] overflow-hidden object-cover object-center"
           draggable={false}
-          priority
         />
 
         {/* ------- Anime Currently Airing ------- */}

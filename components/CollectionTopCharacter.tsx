@@ -56,9 +56,10 @@ const CollectionTopCharacter = () => {
                         <Image
                           src={data.images.jpg.image_url}
                           alt="Top character image"
+                          blurDataURL={data.images.jpg.image_url}
+                          placeholder="blur"
                           width={160}
                           height={280}
-                          priority
                           className="w-full"
                         />
 

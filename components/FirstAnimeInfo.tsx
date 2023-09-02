@@ -13,7 +13,7 @@ const FirstAnimeInfo: FC<FirstAnimeInfoProps> = ({ success, data }) => {
       <div className="min-w-full h-[105px] md:h-0 md:min-w-[240px] relative ">
         <Image
           src={data.images.jpg.large_image_url}
-          alt=""
+          alt="Anime Picture"
           width={220}
           height={300}
           priority
